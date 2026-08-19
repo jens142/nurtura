@@ -59,7 +59,15 @@ public class LoginActivity extends AppCompatActivity {
                 sendPasswordResetEmail()
         );
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        if (firebaseAuth != null
+                && firebaseAuth.getCurrentUser() != null) {
+            openMainActivity();
+        }
+    }
     private void loginUser() {
         String email = getInputText(emailEditText);
         String password = getInputText(passwordEditText);

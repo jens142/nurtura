@@ -16,4 +16,10 @@
     <string name="confirm_password">Confirm password</string>
     <string name="already_have_account">Already have an account?</string>
     <string name="sign_in">Sign in</string>
+
+    <string name="dashboard_welcome">Welcome to Nurtura</string>
+    <string name="dashboard_message">Your personalised health dashboard is ready.</string>
+    <string name="logout">Log out</string>
+
+    <string name="welcome_user">Welcome, %1$s</string>
 </resources>
