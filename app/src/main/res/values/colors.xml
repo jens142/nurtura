@@ -2,4 +2,32 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Main brand colours -->
+    <color name="nurtura_primary">#8B4F68</color>
+    <color name="nurtura_primary_dark">#66384C</color>
+    <color name="nurtura_background">#FFF8FA</color>
+    <color name="nurtura_surface">#FFFFFFFF</color>
+
+    <!-- Text and borders -->
+    <color name="nurtura_text">#33272C</color>
+    <color name="nurtura_text_secondary">#75676D</color>
+    <color name="nurtura_border">#E8DCE1</color>
+
+    <!-- Module colours -->
+    <color name="menstrual_accent">#C96F89</color>
+    <color name="menstrual_light">#FBE8EE</color>
+
+    <color name="maternal_accent">#8E75A5</color>
+    <color name="maternal_light">#F0EAF5</color>
+
+    <color name="baby_accent">#5F8F7A</color>
+    <color name="baby_light">#E8F3EE</color>
+
+    <color name="wellness_accent">#C77C43</color>
+    <color name="wellness_light">#FCEFE4</color>
+
+    <!-- Status colours -->
+    <color name="nurtura_success">#4F7D61</color>
+    <color name="nurtura_error">#B3261E</color>
 </resources>

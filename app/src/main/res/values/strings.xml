@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Nurtura</string>
+
+    <string name="welcome_back">Welcome back</string>
+    <string name="login_subtitle">Sign in to continue your wellness journey</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login">Log in</string>
+    <string name="no_account">New to Nurtura?</string>
+    <string name="create_account">Create an account</string>
+
+    <string name="create_your_account">Create your account</string>
+    <string name="register_subtitle">Set up your profile to begin using Nurtura</string>
+    <string name="full_name">Full name</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="sign_in">Sign in</string>
 </resources>
