@@ -22,4 +22,24 @@
     <string name="logout">Log out</string>
 
     <string name="welcome_user">Welcome, %1$s</string>
+
+    <string name="dashboard_subtitle">Your health, organised in one place</string>
+    <string name="life_stage">Current life stage</string>
+    <string name="choose_life_stage">Choose your life stage</string>
+    <string name="tap_to_update">Tap to update</string>
+    <string name="your_health_spaces">Your health spaces</string>
+
+    <string name="menstrual_health">Menstrual Health</string>
+    <string name="menstrual_description">Track periods, symptoms and cycle patterns</string>
+
+    <string name="maternal_care">Maternal Care</string>
+    <string name="maternal_description">Pregnancy and postpartum support</string>
+
+    <string name="baby_care">Baby Care</string>
+    <string name="baby_description">Feeding, sleep and daily care records</string>
+
+    <string name="wellness">Wellness</string>
+    <string name="wellness_description">View trends and personalised summaries</string>
+
+    <string name="module_coming_soon">This module is being prepared</string>
 </resources>
