@@ -150,4 +150,46 @@
     <string name="choose_diaper_type">Choose diaper type</string>
     <string name="choose_sleep_action">Choose sleep action</string>
 
+    <string name="wellness_title">Wellness</string>
+    <string name="wellness_subtitle">Track daily habits and view simple wellness insights</string>
+
+    <string name="wellness_summary">Recent wellness summary</string>
+    <string name="average_sleep">Average sleep</string>
+    <string name="average_water">Average water</string>
+    <string name="common_mood">Common mood</string>
+    <string name="wellness_insight">Wellness insight</string>
+    <string name="no_wellness_data">Not enough data</string>
+
+    <string name="daily_check_in">Today’s check-in</string>
+    <string name="energy_level">Energy level</string>
+    <string name="sleep_hours">Sleep hours</string>
+    <string name="water_glasses">Glasses of water</string>
+    <string name="wellness_symptoms_hint">Symptoms or wellness notes (optional)</string>
+    <string name="save_wellness_check_in">Save today’s check-in</string>
+
+    <string name="recent_wellness_entries">Recent check-ins</string>
+    <string name="no_wellness_entries">No wellness check-ins yet</string>
+    <string name="wellness_disclaimer">Insights are general guidance and are not a medical diagnosis.</string>
+
+    <string name="sleep_hours_value">%1$.1f hours</string>
+    <string name="water_glasses_value">%1$d glasses</string>
+    <string name="average_sleep_value">%1$.1f hours</string>
+    <string name="average_water_value">%1$.1f glasses</string>
+    <string name="energy_value">Energy: %1$s</string>
+
+    <string name="insight_sleep">Your recent sleep is below seven hours. A consistent bedtime may help.</string>
+    <string name="insight_water">Your recent water intake is low. Try keeping water nearby during the day.</string>
+    <string name="insight_mood">Your recent mood has been low. Consider rest and talking to someone you trust.</string>
+    <string name="insight_balanced">Your recent wellness habits appear reasonably balanced.</string>
+
+    <string-array name="energy_levels">
+        <item>Select energy level</item>
+        <item>High</item>
+        <item>Moderate</item>
+        <item>Low</item>
+    </string-array>
+
+    <string name="wellness_habits_value">%1$.1f hours sleep · %2$d glasses water</string>
+    <string name="wellness_saved">Today’s check-in saved</string>
+
 </resources>

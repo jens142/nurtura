@@ -81,11 +81,14 @@ public class MainActivity extends AppCompatActivity {
                 });
 
         findViewById(R.id.wellnessCard)
-                .setOnClickListener(view ->
-                        showModuleMessage(
-                                "Wellness"
-                        )
-                );
+                .setOnClickListener(view -> {
+                    Intent intent = new Intent(
+                            MainActivity.this,
+                            WellnessActivity.class
+                    );
+
+                    startActivity(intent);
+                });
 
         logoutButton.setOnClickListener(view -> {
             firebaseAuth.signOut();
