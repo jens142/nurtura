@@ -51,11 +51,14 @@ public class MainActivity extends AppCompatActivity {
                 );
 
         findViewById(R.id.menstrualCard)
-                .setOnClickListener(view ->
-                        showModuleMessage(
-                                "Menstrual tracking"
-                        )
-                );
+                .setOnClickListener(view -> {
+                    Intent intent = new Intent(
+                            MainActivity.this,
+                            MenstrualActivity.class
+                    );
+
+                    startActivity(intent);
+                });
 
         findViewById(R.id.maternalCard)
                 .setOnClickListener(view ->
