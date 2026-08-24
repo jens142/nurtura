@@ -71,11 +71,14 @@ public class MainActivity extends AppCompatActivity {
                 });
 
         findViewById(R.id.babyCareCard)
-                .setOnClickListener(view ->
-                        showModuleMessage(
-                                "Baby care"
-                        )
-                );
+                .setOnClickListener(view -> {
+                    Intent intent = new Intent(
+                            MainActivity.this,
+                            BabyCareActivity.class
+                    );
+
+                    startActivity(intent);
+                });
 
         findViewById(R.id.wellnessCard)
                 .setOnClickListener(view ->
