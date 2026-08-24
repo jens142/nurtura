@@ -42,4 +42,31 @@
     <string name="wellness_description">View trends and personalised summaries</string>
 
     <string name="module_coming_soon">This module is being prepared</string>
+
+    <string name="menstrual_title">Menstrual Health</string>
+    <string name="menstrual_subtitle">Record periods and view your cycle pattern</string>
+
+    <string name="cycle_summary">Cycle summary</string>
+    <string name="last_period">Last period</string>
+    <string name="not_recorded">Not recorded</string>
+    <string name="average_cycle">Average cycle</string>
+    <string name="not_enough_data">Not enough data</string>
+    <string name="next_period">Estimated next period</string>
+
+    <string name="add_period_entry">Add period entry</string>
+    <string name="select_start_date">Select period start date</string>
+    <string name="flow_level">Flow level</string>
+    <string name="symptoms_hint">Symptoms, separated by commas</string>
+    <string name="notes_hint">Additional notes (optional)</string>
+    <string name="save_entry">Save entry</string>
+
+    <string name="recent_entries">Recent entries</string>
+    <string name="no_period_entries">No period entries yet</string>
+
+    <string-array name="flow_levels">
+        <item>Select flow level</item>
+        <item>Light</item>
+        <item>Moderate</item>
+        <item>Heavy</item>
+    </string-array>
 </resources>

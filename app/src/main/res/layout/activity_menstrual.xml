@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nurtura_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/backButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textColor="@color/nurtura_primary"
+            app:backgroundTint="@android:color/transparent"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/menstrual_title"
+            android:textColor="@color/nurtura_text"
+            android:textSize="28sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/menstrual_subtitle"
+            android:textColor="@color/nurtura_text_secondary"
+            android:textSize="15sp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/menstrual_light"
+            app:cardCornerRadius="18dp"
+            app:strokeColor="@color/menstrual_accent"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cycle_summary"
+                    android:textColor="@color/nurtura_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/last_period"
+                    android:textColor="@color/nurtura_text_secondary"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/lastPeriodTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/not_recorded"
+                    android:textColor="@color/nurtura_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/average_cycle"
+                    android:textColor="@color/nurtura_text_secondary"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/averageCycleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/not_enough_data"
+                    android:textColor="@color/nurtura_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/next_period"
+                    android:textColor="@color/nurtura_text_secondary"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/nextPeriodTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/not_enough_data"
+                    android:textColor="@color/nurtura_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            app:cardBackgroundColor="@color/nurtura_surface"
+            app:cardCornerRadius="18dp"
+            app:strokeColor="@color/nurtura_border"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_period_entry"
+                    android:textColor="@color/nurtura_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dateButton"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/select_start_date"
+                    android:textColor="@color/nurtura_primary"
+                    app:strokeColor="@color/nurtura_primary"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/flow_level"
+                    android:textColor="@color/nurtura_text_secondary"
+                    android:textSize="14sp"/>
+
+                <Spinner
+                    android:id="@+id/flowSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:entries="@array/flow_levels"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/nurtura_primary"
+                    app:hintTextColor="@color/nurtura_text_secondary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/symptomsEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/symptoms_hint"
+                        android:inputType="textCapSentences"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/nurtura_primary"
+                    app:hintTextColor="@color/nurtura_text_secondary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/notesEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:hint="@string/notes_hint"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:minLines="3"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/saveEntryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/save_entry"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/nurtura_primary"
+                    app:cornerRadius="12dp"/>
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/progressIndicator"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/nurtura_primary"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="@string/recent_entries"
+            android:textColor="@color/nurtura_text"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/emptyEntriesTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="@string/no_period_entries"
+            android:textColor="@color/nurtura_text_secondary"/>
+
+        <LinearLayout
+            android:id="@+id/recentEntriesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"/>
+
+    </LinearLayout>
+</ScrollView>
