@@ -61,11 +61,14 @@ public class MainActivity extends AppCompatActivity {
                 });
 
         findViewById(R.id.maternalCard)
-                .setOnClickListener(view ->
-                        showModuleMessage(
-                                "Maternal care"
-                        )
-                );
+                .setOnClickListener(view -> {
+                    Intent intent = new Intent(
+                            MainActivity.this,
+                            MaternalActivity.class
+                    );
+
+                    startActivity(intent);
+                });
 
         findViewById(R.id.babyCareCard)
                 .setOnClickListener(view ->

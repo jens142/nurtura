@@ -69,4 +69,44 @@
         <item>Moderate</item>
         <item>Heavy</item>
     </string-array>
+
+    <string name="maternal_title">Maternal Care</string>
+    <string name="maternal_subtitle">Pregnancy and postpartum check-ins</string>
+    <string name="maternal_summary">Care summary</string>
+    <string name="current_stage">Current stage</string>
+    <string name="latest_check_in">Latest check-in</string>
+    <string name="add_maternal_check_in">Add a check-in</string>
+    <string name="care_stage">Care stage</string>
+    <string name="select_check_in_date">Select check-in date</string>
+    <string name="week_number_hint">Pregnancy or postpartum week</string>
+    <string name="mood">Mood</string>
+    <string name="maternal_symptoms_hint">Symptoms or recovery notes</string>
+    <string name="maternal_notes_hint">Additional notes (optional)</string>
+    <string name="save_check_in">Save check-in</string>
+    <string name="recent_check_ins">Recent check-ins</string>
+    <string name="no_check_ins">No maternal check-ins yet</string>
+
+    <string-array name="maternal_stages">
+        <item>Select care stage</item>
+        <item>Pregnancy</item>
+        <item>Postpartum</item>
+    </string-array>
+
+    <string-array name="mood_levels">
+        <item>Select mood</item>
+        <item>Very good</item>
+        <item>Good</item>
+        <item>Okay</item>
+        <item>Low</item>
+        <item>Very low</item>
+    </string-array>
+
+    <string name="back">Back</string>
+
+    <string name="week_value">Week %1$d</string>
+    <string name="stage_week_value">%1$s · Week %2$d</string>
+    <string name="latest_check_in_value">%1$s · Week %2$d</string>
+    <string name="mood_value">Mood: %1$s</string>
+    <string name="symptoms_value">Symptoms: %1$s</string>
+    <string name="notes_value">Notes: %1$s</string>
 </resources>
