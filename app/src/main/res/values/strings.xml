@@ -109,4 +109,45 @@
     <string name="mood_value">Mood: %1$s</string>
     <string name="symptoms_value">Symptoms: %1$s</string>
     <string name="notes_value">Notes: %1$s</string>
+
+    <string name="baby_title">Baby Care</string>
+    <string name="baby_subtitle">Quickly record feeding, sleep and daily care</string>
+    <string name="baby_summary">Today’s summary</string>
+    <string name="records_today">Records today</string>
+    <string name="latest_activity">Latest activity</string>
+
+    <string name="quick_log">Quick log</string>
+    <string name="quick_log_help">Tap an activity to record it now</string>
+    <string name="feed">Feed</string>
+    <string name="diaper">Diaper</string>
+    <string name="sleep">Sleep</string>
+    <string name="bath">Bath</string>
+
+    <string name="recent_baby_records">Recent care records</string>
+    <string name="no_baby_records">No baby care records yet</string>
+    <string name="activity_recorded">%1$s recorded</string>
+    <string name="records_count_value">%1$d</string>
+    <string name="activity_date_time_value">%1$s · %2$s</string>
+
+    <string-array name="feeding_options">
+        <item>Breastfeeding</item>
+        <item>Formula</item>
+        <item>Solid food</item>
+    </string-array>
+
+    <string-array name="diaper_options">
+        <item>Wet diaper</item>
+        <item>Dirty diaper</item>
+        <item>Wet and dirty diaper</item>
+    </string-array>
+
+    <string-array name="sleep_options">
+        <item>Sleep started</item>
+        <item>Woke up</item>
+    </string-array>
+
+    <string name="choose_feeding_type">Choose feeding type</string>
+    <string name="choose_diaper_type">Choose diaper type</string>
+    <string name="choose_sleep_action">Choose sleep action</string>
+
 </resources>
