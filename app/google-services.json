@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "355697461683",
+    "project_id": "nurtura-91ff8",
+    "storage_bucket": "nurtura-91ff8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355697461683:android:b57fbb5174c495a8c1a3c6",
+        "android_client_info": {
+          "package_name": "com.jenny.nurtura"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_EtPAgFu8o42rR3GDaerDm9egRubAaH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
