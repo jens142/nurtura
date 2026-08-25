@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
@@ -46,6 +47,7 @@ public class BabyCareActivity extends AppCompatActivity {
         setContentView(R.layout.activity_baby_care);
 
         firestore = FirebaseFirestore.getInstance();
+
         currentUser = FirebaseAuth.getInstance()
                 .getCurrentUser();
 
@@ -55,7 +57,9 @@ public class BabyCareActivity extends AppCompatActivity {
         }
 
         todayRecordsTextView =
-                findViewById(R.id.todayRecordsTextView);
+                findViewById(
+                        R.id.todayRecordsTextView
+                );
 
         latestActivityTextView =
                 findViewById(
@@ -63,7 +67,9 @@ public class BabyCareActivity extends AppCompatActivity {
                 );
 
         emptyTextView =
-                findViewById(R.id.babyEmptyTextView);
+                findViewById(
+                        R.id.babyEmptyTextView
+                );
 
         entriesContainer =
                 findViewById(
@@ -76,7 +82,9 @@ public class BabyCareActivity extends AppCompatActivity {
                 );
 
         findViewById(R.id.babyBackButton)
-                .setOnClickListener(view -> finish());
+                .setOnClickListener(
+                        view -> finish()
+                );
 
         findViewById(R.id.feedButton)
                 .setOnClickListener(view ->
@@ -123,7 +131,9 @@ public class BabyCareActivity extends AppCompatActivity {
             String category
     ) {
         String[] options = getResources()
-                .getStringArray(optionsArrayResource);
+                .getStringArray(
+                        optionsArrayResource
+                );
 
         new MaterialAlertDialogBuilder(this)
                 .setTitle(titleResource)
@@ -132,7 +142,9 @@ public class BabyCareActivity extends AppCompatActivity {
                         (dialog, selectedIndex) ->
                                 saveActivity(
                                         category,
-                                        options[selectedIndex]
+                                        options[
+                                                selectedIndex
+                                                ]
                                 )
                 )
                 .setNegativeButton(
@@ -152,8 +164,15 @@ public class BabyCareActivity extends AppCompatActivity {
         Map<String, Object> babyRecord =
                 new HashMap<>();
 
-        babyRecord.put("category", category);
-        babyRecord.put("activity", activity);
+        babyRecord.put(
+                "category",
+                category
+        );
+
+        babyRecord.put(
+                "activity",
+                activity
+        );
 
         babyRecord.put(
                 "activityTimeMillis",
@@ -259,6 +278,7 @@ public class BabyCareActivity extends AppCompatActivity {
                             }
 
                             addRecordCard(
+                                    document.getId(),
                                     activity,
                                     activityTime
                             );
@@ -299,11 +319,17 @@ public class BabyCareActivity extends AppCompatActivity {
                         )
                 )
                 .addOnFailureListener(exception ->
-                        todayRecordsTextView.setText("0")
+                        todayRecordsTextView.setText(
+                                getString(
+                                        R.string.records_count_value,
+                                        0
+                                )
+                        )
                 );
     }
 
     private void addRecordCard(
+            String documentId,
             String activity,
             long activityTime
     ) {
@@ -318,7 +344,9 @@ public class BabyCareActivity extends AppCompatActivity {
                                 .WRAP_CONTENT
                 );
 
-        cardParams.bottomMargin = dpToPixels(10);
+        cardParams.bottomMargin =
+                dpToPixels(10);
+
         card.setLayoutParams(cardParams);
         card.setRadius(dpToPixels(14));
 
@@ -336,7 +364,9 @@ public class BabyCareActivity extends AppCompatActivity {
                 )
         );
 
-        card.setStrokeWidth(dpToPixels(1));
+        card.setStrokeWidth(
+                dpToPixels(1)
+        );
 
         LinearLayout content =
                 new LinearLayout(this);
@@ -357,6 +387,7 @@ public class BabyCareActivity extends AppCompatActivity {
 
         activityText.setText(activity);
         activityText.setTextSize(17);
+
         activityText.setTypeface(
                 null,
                 Typeface.BOLD
@@ -383,6 +414,7 @@ public class BabyCareActivity extends AppCompatActivity {
         );
 
         timeText.setTextSize(14);
+
         timeText.setPadding(
                 0,
                 dpToPixels(5),
@@ -399,8 +431,111 @@ public class BabyCareActivity extends AppCompatActivity {
 
         content.addView(timeText);
 
+        MaterialButton deleteButton =
+                new MaterialButton(this);
+
+        deleteButton.setText(
+                R.string.delete
+        );
+
+        deleteButton.setAllCaps(false);
+
+        deleteButton.setTextColor(
+                ContextCompat.getColor(
+                        this,
+                        R.color.nurtura_error
+                )
+        );
+
+        deleteButton.setBackgroundTintList(
+                android.content.res.ColorStateList
+                        .valueOf(
+                                android.graphics.Color
+                                        .TRANSPARENT
+                        )
+        );
+
+        LinearLayout.LayoutParams deleteParams =
+                new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams
+                                .WRAP_CONTENT,
+                        LinearLayout.LayoutParams
+                                .WRAP_CONTENT
+                );
+
+        deleteParams.gravity =
+                android.view.Gravity.END;
+
+        deleteButton.setLayoutParams(
+                deleteParams
+        );
+
+        deleteButton.setOnClickListener(
+                view ->
+                        showDeleteRecordDialog(
+                                documentId
+                        )
+        );
+
+        content.addView(deleteButton);
+
         card.addView(content);
         entriesContainer.addView(card);
+    }
+
+    private void showDeleteRecordDialog(
+            String documentId
+    ) {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(
+                        R.string.delete_record_title
+                )
+                .setMessage(
+                        R.string.delete_record_message
+                )
+                .setNegativeButton(
+                        android.R.string.cancel,
+                        null
+                )
+                .setPositiveButton(
+                        R.string.delete,
+                        (dialog, button) ->
+                                deleteBabyRecord(
+                                        documentId
+                                )
+                )
+                .show();
+    }
+
+    private void deleteBabyRecord(
+            String documentId
+    ) {
+        showLoading(true);
+        setQuickButtonsEnabled(false);
+
+        getBabyEntries()
+                .document(documentId)
+                .delete()
+                .addOnSuccessListener(unused -> {
+                    Toast.makeText(
+                            BabyCareActivity.this,
+                            R.string.record_deleted,
+                            Toast.LENGTH_SHORT
+                    ).show();
+
+                    loadBabyRecords();
+                    loadTodayCount();
+                })
+                .addOnFailureListener(exception -> {
+                    showLoading(false);
+                    setQuickButtonsEnabled(true);
+
+                    Toast.makeText(
+                            BabyCareActivity.this,
+                            R.string.unable_to_delete,
+                            Toast.LENGTH_SHORT
+                    ).show();
+                });
     }
 
     private CollectionReference getBabyEntries() {
@@ -436,7 +571,9 @@ public class BabyCareActivity extends AppCompatActivity {
         return calendar.getTimeInMillis();
     }
 
-    private String formatDate(long timeMillis) {
+    private String formatDate(
+            long timeMillis
+    ) {
         SimpleDateFormat format =
                 new SimpleDateFormat(
                         "dd MMM yyyy",
@@ -448,7 +585,9 @@ public class BabyCareActivity extends AppCompatActivity {
         );
     }
 
-    private String formatTime(long timeMillis) {
+    private String formatTime(
+            long timeMillis
+    ) {
         SimpleDateFormat format =
                 new SimpleDateFormat(
                         "hh:mm a",
@@ -460,9 +599,13 @@ public class BabyCareActivity extends AppCompatActivity {
         );
     }
 
-    private void showLoading(boolean loading) {
+    private void showLoading(
+            boolean loading
+    ) {
         progressIndicator.setVisibility(
-                loading ? View.VISIBLE : View.GONE
+                loading
+                        ? View.VISIBLE
+                        : View.GONE
         );
     }
 
