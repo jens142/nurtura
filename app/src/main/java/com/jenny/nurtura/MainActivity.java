@@ -36,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        welcomeTextView = findViewById(R.id.welcomeTextView);
+        welcomeTextView =
+                findViewById(R.id.welcomeTextView);
+
         lifeStageTextView =
                 findViewById(R.id.lifeStageTextView);
 
@@ -107,10 +109,15 @@ public class MainActivity extends AppCompatActivity {
 
                     String name =
                             document.getString("name");
-                    String lifeStage =
-                            document.getString("lifeStage");
 
-                    if (name != null && !name.isEmpty()) {
+                    String lifeStage =
+                            document.getString(
+                                    "lifeStage"
+                            );
+
+                    if (name != null
+                            && !name.isEmpty()) {
+
                         welcomeTextView.setText(
                                 getString(
                                         R.string.welcome_user,
@@ -122,8 +129,11 @@ public class MainActivity extends AppCompatActivity {
                     if (lifeStage != null
                             && !lifeStage.isEmpty()
                             && !lifeStage.equals(
-                            "Not selected"
+                            getString(
+                                    R.string.not_selected
+                            )
                     )) {
+
                         lifeStageTextView.setText(
                                 lifeStage
                         );
@@ -132,23 +142,22 @@ public class MainActivity extends AppCompatActivity {
                 .addOnFailureListener(exception ->
                         Toast.makeText(
                                 MainActivity.this,
-                                "Unable to load profile",
+                                R.string.unable_to_load_profile,
                                 Toast.LENGTH_SHORT
                         ).show()
                 );
     }
 
     private void showLifeStageDialog() {
-        String[] lifeStages = {
-                "Menstrual tracking",
-                "Pregnancy",
-                "Postpartum",
-                "Baby care",
-                "General wellness"
-        };
+        String[] lifeStages =
+                getResources().getStringArray(
+                        R.array.life_stage_options
+                );
 
         new MaterialAlertDialogBuilder(this)
-                .setTitle("Choose your life stage")
+                .setTitle(
+                        R.string.choose_life_stage
+                )
                 .setItems(
                         lifeStages,
                         (dialog, selectedIndex) ->
@@ -159,16 +168,21 @@ public class MainActivity extends AppCompatActivity {
                                 )
                 )
                 .setNegativeButton(
-                        "Cancel",
+                        android.R.string.cancel,
                         null
                 )
                 .show();
     }
 
-    private void saveLifeStage(String lifeStage) {
+    private void saveLifeStage(
+            String lifeStage
+    ) {
         firestore.collection("users")
                 .document(currentUser.getUid())
-                .update("lifeStage", lifeStage)
+                .update(
+                        "lifeStage",
+                        lifeStage
+                )
                 .addOnSuccessListener(unused -> {
                     lifeStageTextView.setText(
                             lifeStage
@@ -176,28 +190,17 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(
                             MainActivity.this,
-                            "Life stage updated",
+                            R.string.life_stage_updated,
                             Toast.LENGTH_SHORT
                     ).show();
                 })
                 .addOnFailureListener(exception ->
                         Toast.makeText(
                                 MainActivity.this,
-                                "Unable to update life stage",
+                                R.string.unable_to_update_life_stage,
                                 Toast.LENGTH_SHORT
                         ).show()
                 );
-    }
-
-    private void showModuleMessage(
-            String moduleName
-    ) {
-        Toast.makeText(
-                MainActivity.this,
-                moduleName
-                        + " module is being prepared",
-                Toast.LENGTH_SHORT
-        ).show();
     }
 
     private void openLoginActivity() {
