@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.slider.Slider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,6 +64,7 @@ public class WellnessActivity extends AppCompatActivity {
         setContentView(R.layout.activity_wellness);
 
         firestore = FirebaseFirestore.getInstance();
+
         currentUser = FirebaseAuth.getInstance()
                 .getCurrentUser();
 
@@ -72,40 +74,64 @@ public class WellnessActivity extends AppCompatActivity {
         }
 
         moodSpinner =
-                findViewById(R.id.wellnessMoodSpinner);
+                findViewById(
+                        R.id.wellnessMoodSpinner
+                );
 
         energySpinner =
-                findViewById(R.id.energySpinner);
+                findViewById(
+                        R.id.energySpinner
+                );
 
         sleepSlider =
-                findViewById(R.id.sleepSlider);
+                findViewById(
+                        R.id.sleepSlider
+                );
 
         waterSlider =
-                findViewById(R.id.waterSlider);
+                findViewById(
+                        R.id.waterSlider
+                );
 
         sleepValueTextView =
-                findViewById(R.id.sleepValueTextView);
+                findViewById(
+                        R.id.sleepValueTextView
+                );
 
         waterValueTextView =
-                findViewById(R.id.waterValueTextView);
+                findViewById(
+                        R.id.waterValueTextView
+                );
 
         averageSleepTextView =
-                findViewById(R.id.averageSleepTextView);
+                findViewById(
+                        R.id.averageSleepTextView
+                );
 
         averageWaterTextView =
-                findViewById(R.id.averageWaterTextView);
+                findViewById(
+                        R.id.averageWaterTextView
+                );
 
         commonMoodTextView =
-                findViewById(R.id.commonMoodTextView);
+                findViewById(
+                        R.id.commonMoodTextView
+                );
 
         insightTextView =
-                findViewById(R.id.wellnessInsightTextView);
+                findViewById(
+                        R.id.wellnessInsightTextView
+                );
 
         notesEditText =
-                findViewById(R.id.wellnessNotesEditText);
+                findViewById(
+                        R.id.wellnessNotesEditText
+                );
 
         saveButton =
-                findViewById(R.id.saveWellnessButton);
+                findViewById(
+                        R.id.saveWellnessButton
+                );
 
         progressIndicator =
                 findViewById(
@@ -146,7 +172,9 @@ public class WellnessActivity extends AppCompatActivity {
         );
 
         findViewById(R.id.wellnessBackButton)
-                .setOnClickListener(view -> finish());
+                .setOnClickListener(
+                        view -> finish()
+                );
 
         saveButton.setOnClickListener(
                 view -> saveTodayCheckIn()
@@ -155,7 +183,9 @@ public class WellnessActivity extends AppCompatActivity {
         loadWellnessEntries();
     }
 
-    private void updateSleepValue(float value) {
+    private void updateSleepValue(
+            float value
+    ) {
         sleepValueTextView.setText(
                 getString(
                         R.string.sleep_hours_value,
@@ -164,7 +194,9 @@ public class WellnessActivity extends AppCompatActivity {
         );
     }
 
-    private void updateWaterValue(float value) {
+    private void updateWaterValue(
+            float value
+    ) {
         waterValueTextView.setText(
                 getString(
                         R.string.water_glasses_value,
@@ -184,7 +216,10 @@ public class WellnessActivity extends AppCompatActivity {
         if (energySpinner
                 .getSelectedItemPosition() == 0) {
 
-            showMessage("Select your energy level");
+            showMessage(
+                    "Select your energy level"
+            );
+
             return;
         }
 
@@ -202,7 +237,9 @@ public class WellnessActivity extends AppCompatActivity {
                 sleepSlider.getValue();
 
         int waterGlasses =
-                Math.round(waterSlider.getValue());
+                Math.round(
+                        waterSlider.getValue()
+                );
 
         String notes =
                 notesEditText
@@ -219,11 +256,24 @@ public class WellnessActivity extends AppCompatActivity {
         Map<String, Object> checkIn =
                 new HashMap<>();
 
-        checkIn.put("dateMillis", todayMillis);
+        checkIn.put(
+                "dateMillis",
+                todayMillis
+        );
+
         checkIn.put("mood", mood);
         checkIn.put("energy", energy);
-        checkIn.put("sleepHours", sleepHours);
-        checkIn.put("waterGlasses", waterGlasses);
+
+        checkIn.put(
+                "sleepHours",
+                sleepHours
+        );
+
+        checkIn.put(
+                "waterGlasses",
+                waterGlasses
+        );
+
         checkIn.put("notes", notes);
 
         checkIn.put(
@@ -309,7 +359,9 @@ public class WellnessActivity extends AppCompatActivity {
                                 );
 
                         String mood =
-                                document.getString("mood");
+                                document.getString(
+                                        "mood"
+                                );
 
                         String energy =
                                 document.getString(
@@ -326,6 +378,7 @@ public class WellnessActivity extends AppCompatActivity {
                                 || waterGlasses == null
                                 || mood == null
                                 || energy == null) {
+
                             continue;
                         }
 
@@ -334,8 +387,12 @@ public class WellnessActivity extends AppCompatActivity {
                         validEntryCount++;
 
                         int moodCount =
-                                moodCounts.containsKey(mood)
-                                        ? moodCounts.get(mood)
+                                moodCounts.containsKey(
+                                        mood
+                                )
+                                        ? moodCounts.get(
+                                        mood
+                                )
                                         : 0;
 
                         moodCounts.put(
@@ -344,6 +401,7 @@ public class WellnessActivity extends AppCompatActivity {
                         );
 
                         addWellnessEntryCard(
+                                document.getId(),
                                 dateMillis,
                                 mood,
                                 energy,
@@ -363,7 +421,9 @@ public class WellnessActivity extends AppCompatActivity {
                                         / validEntryCount;
 
                         String commonMood =
-                                findCommonMood(moodCounts);
+                                findCommonMood(
+                                        moodCounts
+                                );
 
                         updateSummary(
                                 averageSleep,
@@ -404,7 +464,9 @@ public class WellnessActivity extends AppCompatActivity {
                 )
         );
 
-        commonMoodTextView.setText(commonMood);
+        commonMoodTextView.setText(
+                commonMood
+        );
 
         if (averageSleep < 7) {
             insightTextView.setText(
@@ -415,7 +477,9 @@ public class WellnessActivity extends AppCompatActivity {
                     R.string.insight_water
             );
         } else if (commonMood.equals("Low")
-                || commonMood.equals("Very low")) {
+                || commonMood.equals(
+                "Very low"
+        )) {
 
             insightTextView.setText(
                     R.string.insight_mood
@@ -430,13 +494,19 @@ public class WellnessActivity extends AppCompatActivity {
     private String findCommonMood(
             Map<String, Integer> moodCounts
     ) {
-        String commonMood = "Not recorded";
+        String commonMood =
+                getString(
+                        R.string.not_recorded
+                );
+
         int highestCount = 0;
 
         for (Map.Entry<String, Integer> entry
                 : moodCounts.entrySet()) {
 
-            if (entry.getValue() > highestCount) {
+            if (entry.getValue()
+                    > highestCount) {
+
                 commonMood = entry.getKey();
                 highestCount = entry.getValue();
             }
@@ -464,6 +534,7 @@ public class WellnessActivity extends AppCompatActivity {
     }
 
     private void addWellnessEntryCard(
+            String documentId,
             long dateMillis,
             String mood,
             String energy,
@@ -482,7 +553,9 @@ public class WellnessActivity extends AppCompatActivity {
                                 .WRAP_CONTENT
                 );
 
-        cardParams.bottomMargin = dpToPixels(10);
+        cardParams.bottomMargin =
+                dpToPixels(10);
+
         card.setLayoutParams(cardParams);
         card.setRadius(dpToPixels(14));
 
@@ -500,7 +573,9 @@ public class WellnessActivity extends AppCompatActivity {
                 )
         );
 
-        card.setStrokeWidth(dpToPixels(1));
+        card.setStrokeWidth(
+                dpToPixels(1)
+        );
 
         LinearLayout content =
                 new LinearLayout(this);
@@ -559,7 +634,9 @@ public class WellnessActivity extends AppCompatActivity {
                 )
         );
 
-        if (notes != null && !notes.isEmpty()) {
+        if (notes != null
+                && !notes.isEmpty()) {
+
             content.addView(
                     createEntryText(
                             getString(
@@ -571,6 +648,54 @@ public class WellnessActivity extends AppCompatActivity {
                     )
             );
         }
+
+        MaterialButton deleteButton =
+                new MaterialButton(this);
+
+        deleteButton.setText(
+                R.string.delete
+        );
+
+        deleteButton.setAllCaps(false);
+
+        deleteButton.setTextColor(
+                ContextCompat.getColor(
+                        this,
+                        R.color.nurtura_error
+                )
+        );
+
+        deleteButton.setBackgroundTintList(
+                android.content.res.ColorStateList
+                        .valueOf(
+                                android.graphics.Color
+                                        .TRANSPARENT
+                        )
+        );
+
+        LinearLayout.LayoutParams deleteParams =
+                new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams
+                                .WRAP_CONTENT,
+                        LinearLayout.LayoutParams
+                                .WRAP_CONTENT
+                );
+
+        deleteParams.gravity =
+                android.view.Gravity.END;
+
+        deleteButton.setLayoutParams(
+                deleteParams
+        );
+
+        deleteButton.setOnClickListener(
+                view ->
+                        showDeleteRecordDialog(
+                                documentId
+                        )
+        );
+
+        content.addView(deleteButton);
 
         card.addView(content);
         entriesContainer.addView(card);
@@ -614,6 +739,58 @@ public class WellnessActivity extends AppCompatActivity {
         return textView;
     }
 
+    private void showDeleteRecordDialog(
+            String documentId
+    ) {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(
+                        R.string.delete_record_title
+                )
+                .setMessage(
+                        R.string.delete_record_message
+                )
+                .setNegativeButton(
+                        android.R.string.cancel,
+                        null
+                )
+                .setPositiveButton(
+                        R.string.delete,
+                        (dialog, button) ->
+                                deleteWellnessEntry(
+                                        documentId
+                                )
+                )
+                .show();
+    }
+
+    private void deleteWellnessEntry(
+            String documentId
+    ) {
+        showLoading(true);
+
+        getWellnessEntries()
+                .document(documentId)
+                .delete()
+                .addOnSuccessListener(unused -> {
+                    Toast.makeText(
+                            WellnessActivity.this,
+                            R.string.record_deleted,
+                            Toast.LENGTH_SHORT
+                    ).show();
+
+                    loadWellnessEntries();
+                })
+                .addOnFailureListener(exception -> {
+                    showLoading(false);
+
+                    Toast.makeText(
+                            WellnessActivity.this,
+                            R.string.unable_to_delete,
+                            Toast.LENGTH_SHORT
+                    ).show();
+                });
+    }
+
     private CollectionReference getWellnessEntries() {
         return firestore.collection("users")
                 .document(currentUser.getUid())
@@ -647,7 +824,9 @@ public class WellnessActivity extends AppCompatActivity {
         return calendar.getTimeInMillis();
     }
 
-    private String createDateKey(long dateMillis) {
+    private String createDateKey(
+            long dateMillis
+    ) {
         SimpleDateFormat format =
                 new SimpleDateFormat(
                         "yyyy-MM-dd",
@@ -659,7 +838,9 @@ public class WellnessActivity extends AppCompatActivity {
         );
     }
 
-    private String formatDate(long dateMillis) {
+    private String formatDate(
+            long dateMillis
+    ) {
         SimpleDateFormat format =
                 new SimpleDateFormat(
                         "dd MMM yyyy",
@@ -671,15 +852,21 @@ public class WellnessActivity extends AppCompatActivity {
         );
     }
 
-    private void showLoading(boolean loading) {
+    private void showLoading(
+            boolean loading
+    ) {
         progressIndicator.setVisibility(
-                loading ? View.VISIBLE : View.GONE
+                loading
+                        ? View.VISIBLE
+                        : View.GONE
         );
 
         saveButton.setEnabled(!loading);
     }
 
-    private void showMessage(String message) {
+    private void showMessage(
+            String message
+    ) {
         Toast.makeText(
                 this,
                 message,
