@@ -32,6 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MenstrualActivity extends AppCompatActivity {
 
@@ -272,6 +273,7 @@ public class MenstrualActivity extends AppCompatActivity {
                                     document.getString("notes");
 
                             addRecentEntryCard(
+                                    document.getId(),
                                     startDate,
                                     flow,
                                     symptoms,
@@ -385,6 +387,7 @@ public class MenstrualActivity extends AppCompatActivity {
     }
 
     private void addRecentEntryCard(
+            String documentId,
             long startDate,
             String flow,
             String symptoms,
@@ -508,9 +511,95 @@ public class MenstrualActivity extends AppCompatActivity {
 
             content.addView(notesTextView);
         }
+        MaterialButton deleteButton =
+                new MaterialButton(this);
+
+        deleteButton.setText(R.string.delete);
+        deleteButton.setAllCaps(false);
+
+        deleteButton.setTextColor(
+                ContextCompat.getColor(
+                        this,
+                        R.color.nurtura_error
+                )
+        );
+
+        deleteButton.setBackgroundTintList(
+                android.content.res.ColorStateList.valueOf(
+                        android.graphics.Color.TRANSPARENT
+                )
+        );
+
+        LinearLayout.LayoutParams deleteParams =
+                new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                );
+
+        deleteParams.gravity =
+                android.view.Gravity.END;
+
+        deleteButton.setLayoutParams(deleteParams);
+
+        deleteButton.setOnClickListener(
+                view -> showDeleteDialog(documentId)
+        );
+
+        content.addView(deleteButton);
 
         card.addView(content);
         recentEntriesContainer.addView(card);
+    }
+    private void showDeleteDialog(
+            String documentId
+    ) {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(
+                        R.string.delete_record_title
+                )
+                .setMessage(
+                        R.string.delete_record_message
+                )
+                .setNegativeButton(
+                        android.R.string.cancel,
+                        null
+                )
+                .setPositiveButton(
+                        R.string.delete,
+                        (dialog, button) ->
+                                deletePeriodEntry(
+                                        documentId
+                                )
+                )
+                .show();
+    }
+
+    private void deletePeriodEntry(
+            String documentId
+    ) {
+        showLoading(true);
+
+        getPeriodEntries()
+                .document(documentId)
+                .delete()
+                .addOnSuccessListener(unused -> {
+                    Toast.makeText(
+                            MenstrualActivity.this,
+                            R.string.record_deleted,
+                            Toast.LENGTH_SHORT
+                    ).show();
+
+                    loadPeriodEntries();
+                })
+                .addOnFailureListener(exception -> {
+                    showLoading(false);
+
+                    Toast.makeText(
+                            MenstrualActivity.this,
+                            R.string.unable_to_delete,
+                            Toast.LENGTH_SHORT
+                    ).show();
+                });
     }
 
     private CollectionReference getPeriodEntries() {
