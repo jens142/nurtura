@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +54,9 @@ public class WellnessActivity extends AppCompatActivity {
 
     private TextView emptyTextView;
     private LinearLayout entriesContainer;
+
+    private TextView chartEmptyTextView;
+    private LinearLayout weeklyChartContainer;
 
     private EditText notesEditText;
     private MaterialButton saveButton;
@@ -146,6 +150,16 @@ public class WellnessActivity extends AppCompatActivity {
         entriesContainer =
                 findViewById(
                         R.id.wellnessEntriesContainer
+                );
+
+        chartEmptyTextView =
+                findViewById(
+                        R.id.chartEmptyTextView
+                );
+
+        weeklyChartContainer =
+                findViewById(
+                        R.id.weeklyChartContainer
                 );
 
         sleepSlider.setValueFrom(0f);
@@ -263,17 +277,8 @@ public class WellnessActivity extends AppCompatActivity {
 
         checkIn.put("mood", mood);
         checkIn.put("energy", energy);
-
-        checkIn.put(
-                "sleepHours",
-                sleepHours
-        );
-
-        checkIn.put(
-                "waterGlasses",
-                waterGlasses
-        );
-
+        checkIn.put("sleepHours", sleepHours);
+        checkIn.put("waterGlasses", waterGlasses);
         checkIn.put("notes", notes);
 
         checkIn.put(
@@ -317,6 +322,7 @@ public class WellnessActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(snapshot -> {
                     entriesContainer.removeAllViews();
+                    weeklyChartContainer.removeAllViews();
 
                     if (snapshot.isEmpty()) {
                         showEmptySummary();
@@ -325,11 +331,19 @@ public class WellnessActivity extends AppCompatActivity {
                                 View.VISIBLE
                         );
 
+                        chartEmptyTextView.setVisibility(
+                                View.VISIBLE
+                        );
+
                         showLoading(false);
                         return;
                     }
 
                     emptyTextView.setVisibility(
+                            View.GONE
+                    );
+
+                    chartEmptyTextView.setVisibility(
                             View.GONE
                     );
 
@@ -400,6 +414,12 @@ public class WellnessActivity extends AppCompatActivity {
                                 moodCount + 1
                         );
 
+                        addWellnessChartRow(
+                                dateMillis,
+                                sleepHours,
+                                waterGlasses.intValue()
+                        );
+
                         addWellnessEntryCard(
                                 document.getId(),
                                 dateMillis,
@@ -432,6 +452,10 @@ public class WellnessActivity extends AppCompatActivity {
                         );
                     } else {
                         showEmptySummary();
+
+                        chartEmptyTextView.setVisibility(
+                                View.VISIBLE
+                        );
                     }
 
                     showLoading(false);
@@ -531,6 +555,173 @@ public class WellnessActivity extends AppCompatActivity {
         insightTextView.setText(
                 R.string.no_wellness_data
         );
+    }
+
+    private void addWellnessChartRow(
+            long dateMillis,
+            double sleepHours,
+            int waterGlasses
+    ) {
+        LinearLayout chartRow =
+                new LinearLayout(this);
+
+        chartRow.setOrientation(
+                LinearLayout.VERTICAL
+        );
+
+        chartRow.setPadding(
+                0,
+                dpToPixels(8),
+                0,
+                dpToPixels(10)
+        );
+
+        TextView dateText =
+                createEntryText(
+                        formatDate(dateMillis),
+                        14,
+                        true
+                );
+
+        chartRow.addView(dateText);
+
+        TextView sleepText =
+                createEntryText(
+                        getString(
+                                R.string.sleep_hours_value,
+                                sleepHours
+                        ),
+                        13,
+                        false
+                );
+
+        sleepText.setTextColor(
+                ContextCompat.getColor(
+                        this,
+                        R.color.wellness_accent
+                )
+        );
+
+        chartRow.addView(sleepText);
+
+        ProgressBar sleepBar =
+                new ProgressBar(
+                        this,
+                        null,
+                        android.R.attr
+                                .progressBarStyleHorizontal
+                );
+
+        sleepBar.setMax(120);
+
+        sleepBar.setProgress(
+                (int) Math.round(
+                        sleepHours * 10
+                )
+        );
+
+        sleepBar.setProgressTintList(
+                android.content.res.ColorStateList
+                        .valueOf(
+                                ContextCompat.getColor(
+                                        this,
+                                        R.color.wellness_accent
+                                )
+                        )
+        );
+
+        sleepBar.setProgressBackgroundTintList(
+                android.content.res.ColorStateList
+                        .valueOf(
+                                ContextCompat.getColor(
+                                        this,
+                                        R.color.nurtura_border
+                                )
+                        )
+        );
+
+        LinearLayout.LayoutParams sleepBarParams =
+                new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams
+                                .MATCH_PARENT,
+                        dpToPixels(9)
+                );
+
+        sleepBarParams.topMargin =
+                dpToPixels(3);
+
+        sleepBar.setLayoutParams(
+                sleepBarParams
+        );
+
+        chartRow.addView(sleepBar);
+
+        TextView waterText =
+                createEntryText(
+                        getString(
+                                R.string.water_glasses_value,
+                                waterGlasses
+                        ),
+                        13,
+                        false
+                );
+
+        waterText.setTextColor(
+                ContextCompat.getColor(
+                        this,
+                        R.color.baby_accent
+                )
+        );
+
+        chartRow.addView(waterText);
+
+        ProgressBar waterBar =
+                new ProgressBar(
+                        this,
+                        null,
+                        android.R.attr
+                                .progressBarStyleHorizontal
+                );
+
+        waterBar.setMax(15);
+        waterBar.setProgress(waterGlasses);
+
+        waterBar.setProgressTintList(
+                android.content.res.ColorStateList
+                        .valueOf(
+                                ContextCompat.getColor(
+                                        this,
+                                        R.color.baby_accent
+                                )
+                        )
+        );
+
+        waterBar.setProgressBackgroundTintList(
+                android.content.res.ColorStateList
+                        .valueOf(
+                                ContextCompat.getColor(
+                                        this,
+                                        R.color.nurtura_border
+                                )
+                        )
+        );
+
+        LinearLayout.LayoutParams waterBarParams =
+                new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams
+                                .MATCH_PARENT,
+                        dpToPixels(9)
+                );
+
+        waterBarParams.topMargin =
+                dpToPixels(3);
+
+        waterBar.setLayoutParams(
+                waterBarParams
+        );
+
+        chartRow.addView(waterBar);
+        weeklyChartContainer.addView(chartRow);
     }
 
     private void addWellnessEntryCard(

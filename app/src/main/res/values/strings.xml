@@ -198,4 +198,10 @@
     <string name="record_deleted">Record deleted</string>
     <string name="unable_to_delete">Unable to delete record</string>
 
+    <string name="weekly_wellness_chart">Seven-day wellness chart</string>
+    <string name="weekly_chart_subtitle">Sleep hours and water intake from recent check-ins</string>
+    <string name="chart_sleep">Sleep</string>
+    <string name="chart_water">Water</string>
+    <string name="no_chart_data">Save wellness check-ins to build your chart</string>
+
 </resources>
