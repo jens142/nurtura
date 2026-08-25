@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,7 +31,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-
 
 public class MaternalActivity extends AppCompatActivity {
 
@@ -268,6 +268,7 @@ public class MaternalActivity extends AppCompatActivity {
         checkIn.put("mood", mood);
         checkIn.put("symptoms", symptoms);
         checkIn.put("notes", notes);
+
         checkIn.put(
                 "createdAt",
                 FieldValue.serverTimestamp()
@@ -284,6 +285,7 @@ public class MaternalActivity extends AppCompatActivity {
                 })
                 .addOnFailureListener(exception -> {
                     showLoading(false);
+
                     showMessage(
                             "Unable to save check-in"
                     );
@@ -387,6 +389,7 @@ public class MaternalActivity extends AppCompatActivity {
                             }
 
                             addCheckInCard(
+                                    document.getId(),
                                     dateMillis,
                                     stage,
                                     weekNumber,
@@ -409,6 +412,7 @@ public class MaternalActivity extends AppCompatActivity {
     }
 
     private void addCheckInCard(
+            String documentId,
             long dateMillis,
             String stage,
             int weekNumber,
@@ -523,6 +527,48 @@ public class MaternalActivity extends AppCompatActivity {
             );
         }
 
+        MaterialButton deleteButton =
+                new MaterialButton(this);
+
+        deleteButton.setText(R.string.delete);
+        deleteButton.setAllCaps(false);
+
+        deleteButton.setTextColor(
+                ContextCompat.getColor(
+                        this,
+                        R.color.nurtura_error
+                )
+        );
+
+        deleteButton.setBackgroundTintList(
+                android.content.res.ColorStateList.valueOf(
+                        android.graphics.Color.TRANSPARENT
+                )
+        );
+
+        LinearLayout.LayoutParams deleteParams =
+                new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams
+                                .WRAP_CONTENT,
+                        LinearLayout.LayoutParams
+                                .WRAP_CONTENT
+                );
+
+        deleteParams.gravity =
+                android.view.Gravity.END;
+
+        deleteButton.setLayoutParams(
+                deleteParams
+        );
+
+        deleteButton.setOnClickListener(
+                view -> showDeleteDialog(
+                        documentId
+                )
+        );
+
+        content.addView(deleteButton);
+
         card.addView(content);
         entriesContainer.addView(card);
     }
@@ -565,6 +611,58 @@ public class MaternalActivity extends AppCompatActivity {
         return textView;
     }
 
+    private void showDeleteDialog(
+            String documentId
+    ) {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(
+                        R.string.delete_record_title
+                )
+                .setMessage(
+                        R.string.delete_record_message
+                )
+                .setNegativeButton(
+                        android.R.string.cancel,
+                        null
+                )
+                .setPositiveButton(
+                        R.string.delete,
+                        (dialog, button) ->
+                                deleteMaternalEntry(
+                                        documentId
+                                )
+                )
+                .show();
+    }
+
+    private void deleteMaternalEntry(
+            String documentId
+    ) {
+        showLoading(true);
+
+        getMaternalEntries()
+                .document(documentId)
+                .delete()
+                .addOnSuccessListener(unused -> {
+                    Toast.makeText(
+                            MaternalActivity.this,
+                            R.string.record_deleted,
+                            Toast.LENGTH_SHORT
+                    ).show();
+
+                    loadCheckIns();
+                })
+                .addOnFailureListener(exception -> {
+                    showLoading(false);
+
+                    Toast.makeText(
+                            MaternalActivity.this,
+                            R.string.unable_to_delete,
+                            Toast.LENGTH_SHORT
+                    ).show();
+                });
+    }
+
     private CollectionReference getMaternalEntries() {
         return firestore.collection("users")
                 .document(currentUser.getUid())
@@ -585,7 +683,9 @@ public class MaternalActivity extends AppCompatActivity {
 
     private String valueOrDefault(String value) {
         if (value == null || value.isEmpty()) {
-            return "Not recorded";
+            return getString(
+                    R.string.not_recorded
+            );
         }
 
         return value;
