@@ -192,4 +192,10 @@
     <string name="wellness_habits_value">%1$.1f hours sleep · %2$d glasses water</string>
     <string name="wellness_saved">Today’s check-in saved</string>
 
+    <string name="delete">Delete</string>
+    <string name="delete_record_title">Delete this record?</string>
+    <string name="delete_record_message">This action cannot be undone.</string>
+    <string name="record_deleted">Record deleted</string>
+    <string name="unable_to_delete">Unable to delete record</string>
+
 </resources>
