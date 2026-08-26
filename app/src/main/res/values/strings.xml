@@ -300,6 +300,57 @@
     <string name="pregnancy_care">Pregnancy Care</string>
     <string name="pregnancy_description">Track pregnancy weeks, mood and milestones</string>
 
+    <string name="anxiety_screen_title">Anxiety Support</string>
+    <string name="anxiety_screen_subtitle">Pause, check in and choose a calming activity</string>
 
+    <string name="how_are_you_feeling">How are you feeling right now?</string>
+    <string name="anxiety_scale_help">1 = Very anxious · 10 = Very calm</string>
+    <string name="anxiety_rating_value">%1$d out of 10</string>
 
+    <string name="anxiety_quick_questions">What are you noticing?</string>
+    <string name="feeling_worried">Worry</string>
+    <string name="feeling_restless">Restlessness</string>
+    <string name="racing_thoughts">Racing thoughts</string>
+    <string name="feeling_overwhelmed">Feeling overwhelmed</string>
+    <string name="anxiety_cause_hint">What may be causing this feeling? (optional)</string>
+
+    <string name="choose_support_activity">Choose a support activity</string>
+    <string name="breathe">Breathe</string>
+    <string name="breathe_description">Follow a two-minute guided breathing exercise</string>
+    <string name="ground">Ground</string>
+    <string name="ground_description">Use the 5-4-3-2-1 grounding exercise</string>
+    <string name="understand">Understand</string>
+    <string name="understand_description">Pause and record what may be causing the anxiety</string>
+
+    <string name="breathing_exercise">Guided breathing</string>
+    <string name="breathing_instructions">Breathe slowly and comfortably. Stop if you feel uncomfortable.</string>
+    <string name="breathe_in">Breathe in</string>
+    <string name="breathe_out">Breathe out</string>
+    <string name="breathing_time_value">%1$d:%2$02d remaining</string>
+    <string name="finish_breathing">Finish exercise</string>
+
+    <string name="grounding_exercise">5-4-3-2-1 grounding</string>
+    <string name="grounding_instructions">Notice five things you see, four you can feel, three you hear, two you smell and one you taste.</string>
+    <string name="finish_grounding">Finish grounding</string>
+
+    <string name="understand_prompt">Take a moment to write what happened, what you are worried about and what support may help.</string>
+    <string name="continue_check_in">Continue check-in</string>
+
+    <string name="after_support_title">How do you feel now?</string>
+    <string name="after_support_help">Use the same scale: 1 = Very anxious · 10 = Very calm</string>
+    <string name="save_anxiety_check_in">Save anxiety check-in</string>
+
+    <string name="recent_anxiety_check_ins">Recent anxiety check-ins</string>
+    <string name="no_anxiety_check_ins">No anxiety check-ins yet</string>
+    <string name="anxiety_check_in_saved">Anxiety check-in saved</string>
+    <string name="unable_to_save_anxiety">Unable to save anxiety check-in</string>
+    <string name="unable_to_load_anxiety">Unable to load anxiety check-ins</string>
+    <string name="choose_anxiety_activity">Please complete a support activity first</string>
+    <string name="anxiety_before_after_value">%1$d → %2$d after %3$s</string>
+    <string name="anxiety_feelings_value">Noticed: %1$s</string>
+    <string name="anxiety_support_notice">This feature provides general wellbeing support and does not diagnose or treat anxiety.</string>
+
+    <string name="support_activity_completed">%1$s completed. Rate how you feel now.</string>
+    <string name="no_feelings_selected">None selected</string>
+    <string name="anxiety_cause_value">Cause or notes: %1$s</string>
 </resources>

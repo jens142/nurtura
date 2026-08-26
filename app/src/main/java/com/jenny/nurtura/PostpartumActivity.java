@@ -23,5 +23,14 @@ public class PostpartumActivity extends AppCompatActivity {
                     );
                     startActivity(intent);
                 });
+        findViewById(R.id.anxietyCard)
+                .setOnClickListener(view -> {
+                    Intent intent = new Intent(
+                            PostpartumActivity.this,
+                            AnxietySupportActivity.class
+                    );
+
+                    startActivity(intent);
+                });
     }
 }
