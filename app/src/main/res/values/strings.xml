@@ -214,4 +214,92 @@
     <string name="chart_water">Water</string>
     <string name="no_chart_data">Save wellness check-ins to build your chart</string>
 
+    <string name="postpartum_title">Postpartum Support</string>
+    <string name="postpartum_subtitle">Recovery and emotional support after childbirth</string>
+
+    <string name="recovery_check_in">Recovery Check-in</string>
+    <string name="recovery_check_in_description">Record recovery, pain, bleeding and mood</string>
+
+    <string name="anxiety_check_in">I’m Feeling Anxious</string>
+    <string name="anxiety_check_in_description">Use quick tools and record how you feel</string>
+
+    <string name="appointments">Appointments</string>
+    <string name="appointments_description">Save appointments and receive reminders</string>
+
+    <string name="support_contacts">Support Contacts</string>
+    <string name="support_contacts_description">Quickly reach people you trust</string>
+
+    <string name="postpartum_guidance_notice">Nurtura provides general support and does not replace professional medical care.</string>
+
+    <string name="recovery_screen_title">Recovery Check-in</string>
+    <string name="recovery_screen_subtitle">Record how your postpartum recovery is progressing</string>
+    <string name="recovery_summary">Latest recovery summary</string>
+    <string name="latest_recovery_check_in">Latest check-in</string>
+
+    <string name="select_recovery_date">Select check-in date</string>
+    <string name="postpartum_week_hint">Postpartum week</string>
+    <string name="delivery_type">Delivery type</string>
+    <string name="bleeding_level">Bleeding level</string>
+    <string name="pain_level">Pain level</string>
+    <string name="feeding_method">Feeding method</string>
+    <string name="recovery_symptoms_hint">Recovery symptoms or concerns</string>
+    <string name="recovery_notes_hint">Additional notes (optional)</string>
+    <string name="save_recovery_check_in">Save recovery check-in</string>
+
+    <string name="recent_recovery_check_ins">Recent recovery check-ins</string>
+    <string name="no_recovery_check_ins">No recovery check-ins yet</string>
+
+    <string name="recovery_saved">Recovery check-in saved</string>
+    <string name="unable_to_save_recovery">Unable to save recovery check-in</string>
+    <string name="unable_to_load_recovery">Unable to load recovery check-ins</string>
+    <string name="complete_recovery_fields">Please complete all required fields</string>
+    <string name="invalid_postpartum_week">Enter a valid postpartum week</string>
+
+    <string name="recovery_safety_title">Please seek medical advice</string>
+    <string name="recovery_safety_message">Heavy bleeding or severe pain may require prompt medical attention. Please contact a healthcare professional or emergency service.</string>
+    <string name="understood">Understood</string>
+
+    <string name="postpartum_week_value">Postpartum week %1$d</string>
+    <string name="delivery_value">Delivery: %1$s</string>
+    <string name="bleeding_value">Bleeding: %1$s</string>
+    <string name="pain_value">Pain: %1$s</string>
+    <string name="feeding_value">Feeding: %1$s</string>
+
+    <string-array name="delivery_types">
+        <item>Select delivery type</item>
+        <item>Vaginal birth</item>
+        <item>Caesarean birth</item>
+    </string-array>
+
+    <string-array name="bleeding_levels">
+        <item>Select bleeding level</item>
+        <item>None</item>
+        <item>Light</item>
+        <item>Moderate</item>
+        <item>Heavy</item>
+    </string-array>
+
+    <string-array name="pain_levels">
+        <item>Select pain level</item>
+        <item>None</item>
+        <item>Mild</item>
+        <item>Moderate</item>
+        <item>Severe</item>
+    </string-array>
+
+    <string-array name="postpartum_feeding_methods">
+        <item>Select feeding method</item>
+        <item>Breastfeeding</item>
+        <item>Formula feeding</item>
+        <item>Mixed feeding</item>
+        <item>Not applicable</item>
+    </string-array>
+    <string name="recovery_date_week_value">%1$s · Postpartum week %2$d</string>
+    <string name="postpartum_dashboard_description">Recovery, emotional support and appointments</string>
+
+    <string name="pregnancy_care">Pregnancy Care</string>
+    <string name="pregnancy_description">Track pregnancy weeks, mood and milestones</string>
+
+
+
 </resources>

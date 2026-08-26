@@ -144,7 +144,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/maternalCard"
+                android:id="@+id/pregnancyCard"
                 android:layout_width="0dp"
                 android:layout_height="184dp"
                 android:layout_marginStart="8dp"
@@ -173,7 +173,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
-                        android:text="@string/maternal_care"
+                        android:text="@string/pregnancy_care"
                         android:textColor="@color/nurtura_text"
                         android:textSize="17sp"
                         android:textStyle="bold" />
@@ -182,7 +182,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/maternal_description"
+                        android:text="@string/pregnancy_description"
                         android:textColor="@color/nurtura_text_secondary"
                         android:textSize="13sp" />
 
@@ -191,6 +191,52 @@
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/postpartumCard"
+            android:layout_width="match_parent"
+            android:layout_height="154dp"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/maternal_light"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/maternal_accent"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <View
+                    android:layout_width="42dp"
+                    android:layout_height="5dp"
+                    android:background="@color/maternal_accent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/postpartum_title"
+                    android:textColor="@color/nurtura_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/postpartum_dashboard_description"
+                    android:textColor="@color/nurtura_text_secondary"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:layout_width="match_parent"

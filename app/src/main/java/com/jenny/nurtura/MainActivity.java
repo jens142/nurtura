@@ -62,11 +62,21 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 });
 
-        findViewById(R.id.maternalCard)
+        findViewById(R.id.pregnancyCard)
                 .setOnClickListener(view -> {
                     Intent intent = new Intent(
                             MainActivity.this,
                             MaternalActivity.class
+                    );
+
+                    startActivity(intent);
+                });
+
+        findViewById(R.id.postpartumCard)
+                .setOnClickListener(view -> {
+                    Intent intent = new Intent(
+                            MainActivity.this,
+                            PostpartumActivity.class
                     );
 
                     startActivity(intent);
