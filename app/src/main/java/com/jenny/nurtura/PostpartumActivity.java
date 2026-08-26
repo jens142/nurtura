@@ -32,5 +32,14 @@ public class PostpartumActivity extends AppCompatActivity {
 
                     startActivity(intent);
                 });
+        findViewById(R.id.appointmentsCard)
+                .setOnClickListener(view -> {
+                    Intent intent = new Intent(
+                            PostpartumActivity.this,
+                            PostpartumAppointmentsActivity.class
+                    );
+
+                    startActivity(intent);
+                });
     }
 }

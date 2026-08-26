@@ -353,4 +353,27 @@
     <string name="support_activity_completed">%1$s completed. Rate how you feel now.</string>
     <string name="no_feelings_selected">None selected</string>
     <string name="anxiety_cause_value">Cause or notes: %1$s</string>
+
+    <string name="postpartum_appointments_title">Postpartum Appointments</string>
+    <string name="postpartum_appointments_subtitle">Record your upcoming check-ups and support visits</string>
+
+    <string name="postpartum_appointment_type_hint">Appointment type</string>
+    <string name="postpartum_appointment_type_example">For example: postnatal check-up or counselling</string>
+    <string name="postpartum_provider_hint">Doctor, provider or clinic</string>
+    <string name="postpartum_select_date">Select date</string>
+    <string name="postpartum_select_time">Select time</string>
+    <string name="postpartum_appointment_notes_hint">Notes or questions to ask (optional)</string>
+    <string name="save_postpartum_appointment">Save appointment</string>
+
+    <string name="saved_postpartum_appointments">Saved appointments</string>
+    <string name="no_postpartum_appointments">No appointments saved yet</string>
+    <string name="postpartum_appointment_saved">Appointment saved</string>
+    <string name="unable_to_save_appointment">Unable to save appointment</string>
+    <string name="unable_to_load_appointments">Unable to load appointments</string>
+    <string name="complete_appointment_details">Please enter the type, provider, date and time</string>
+
+    <string name="postpartum_appointment_date_time">%1$s at %2$s</string>
+    <string name="postpartum_appointment_type_value">Type: %1$s</string>
+    <string name="postpartum_appointment_provider_value">Provider: %1$s</string>
+    <string name="postpartum_appointment_notes_value">Notes: %1$s</string>
 </resources>
