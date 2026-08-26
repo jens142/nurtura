@@ -376,4 +376,26 @@
     <string name="postpartum_appointment_type_value">Type: %1$s</string>
     <string name="postpartum_appointment_provider_value">Provider: %1$s</string>
     <string name="postpartum_appointment_notes_value">Notes: %1$s</string>
+
+    <string name="support_contacts_screen_title">Support Contacts</string>
+    <string name="support_contacts_screen_subtitle">Keep trusted people and healthcare contacts easy to reach</string>
+
+    <string name="support_contact_name_hint">Contact name</string>
+    <string name="support_contact_relationship_hint">Relationship or role</string>
+    <string name="support_contact_relationship_example">For example: partner, family member, doctor or midwife</string>
+    <string name="support_contact_phone_hint">Phone number</string>
+    <string name="save_support_contact">Save contact</string>
+
+    <string name="your_support_contacts">Your support contacts</string>
+    <string name="no_support_contacts_saved">No support contacts saved yet</string>
+    <string name="support_contact_saved">Support contact saved</string>
+    <string name="unable_to_save_contact">Unable to save support contact</string>
+    <string name="unable_to_load_contacts">Unable to load support contacts</string>
+    <string name="complete_support_contact_details">Please enter the contact name, relationship and phone number</string>
+
+    <string name="support_contact_relationship_value">Relationship or role: %1$s</string>
+    <string name="support_contact_phone_value">Phone: %1$s</string>
+    <string name="call_support_contact">Call</string>
+
+    <string name="support_contacts_safety_notice">For urgent medical help, contact your local emergency service or nearest hospital.</string>
 </resources>

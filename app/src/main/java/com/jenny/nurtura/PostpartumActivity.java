@@ -41,5 +41,14 @@ public class PostpartumActivity extends AppCompatActivity {
 
                     startActivity(intent);
                 });
+        findViewById(R.id.supportContactsCard)
+                .setOnClickListener(view -> {
+                    Intent intent = new Intent(
+                            PostpartumActivity.this,
+                            SupportContactsActivity.class
+                    );
+
+                    startActivity(intent);
+                });
     }
 }
