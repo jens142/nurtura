@@ -15,6 +15,21 @@
         android:theme="@style/Theme.Nurtura"
         tools:targetApi="31">
         <activity
+            android:name=".SupportContactsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PostpartumAppointmentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AnxietySupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecoveryCheckInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PostpartumActivity"
+            android:exported="false" />
+        <activity
             android:name=".WellnessActivity"
             android:exported="false" />
         <activity

@@ -214,4 +214,188 @@
     <string name="chart_water">Water</string>
     <string name="no_chart_data">Save wellness check-ins to build your chart</string>
 
+    <string name="postpartum_title">Postpartum Support</string>
+    <string name="postpartum_subtitle">Recovery and emotional support after childbirth</string>
+
+    <string name="recovery_check_in">Recovery Check-in</string>
+    <string name="recovery_check_in_description">Record recovery, pain, bleeding and mood</string>
+
+    <string name="anxiety_check_in">I’m Feeling Anxious</string>
+    <string name="anxiety_check_in_description">Use quick tools and record how you feel</string>
+
+    <string name="appointments">Appointments</string>
+    <string name="appointments_description">Save appointments and receive reminders</string>
+
+    <string name="support_contacts">Support Contacts</string>
+    <string name="support_contacts_description">Quickly reach people you trust</string>
+
+    <string name="postpartum_guidance_notice">Nurtura provides general support and does not replace professional medical care.</string>
+
+    <string name="recovery_screen_title">Recovery Check-in</string>
+    <string name="recovery_screen_subtitle">Record how your postpartum recovery is progressing</string>
+    <string name="recovery_summary">Latest recovery summary</string>
+    <string name="latest_recovery_check_in">Latest check-in</string>
+
+    <string name="select_recovery_date">Select check-in date</string>
+    <string name="postpartum_week_hint">Postpartum week</string>
+    <string name="delivery_type">Delivery type</string>
+    <string name="bleeding_level">Bleeding level</string>
+    <string name="pain_level">Pain level</string>
+    <string name="feeding_method">Feeding method</string>
+    <string name="recovery_symptoms_hint">Recovery symptoms or concerns</string>
+    <string name="recovery_notes_hint">Additional notes (optional)</string>
+    <string name="save_recovery_check_in">Save recovery check-in</string>
+
+    <string name="recent_recovery_check_ins">Recent recovery check-ins</string>
+    <string name="no_recovery_check_ins">No recovery check-ins yet</string>
+
+    <string name="recovery_saved">Recovery check-in saved</string>
+    <string name="unable_to_save_recovery">Unable to save recovery check-in</string>
+    <string name="unable_to_load_recovery">Unable to load recovery check-ins</string>
+    <string name="complete_recovery_fields">Please complete all required fields</string>
+    <string name="invalid_postpartum_week">Enter a valid postpartum week</string>
+
+    <string name="recovery_safety_title">Please seek medical advice</string>
+    <string name="recovery_safety_message">Heavy bleeding or severe pain may require prompt medical attention. Please contact a healthcare professional or emergency service.</string>
+    <string name="understood">Understood</string>
+
+    <string name="postpartum_week_value">Postpartum week %1$d</string>
+    <string name="delivery_value">Delivery: %1$s</string>
+    <string name="bleeding_value">Bleeding: %1$s</string>
+    <string name="pain_value">Pain: %1$s</string>
+    <string name="feeding_value">Feeding: %1$s</string>
+
+    <string-array name="delivery_types">
+        <item>Select delivery type</item>
+        <item>Vaginal birth</item>
+        <item>Caesarean birth</item>
+    </string-array>
+
+    <string-array name="bleeding_levels">
+        <item>Select bleeding level</item>
+        <item>None</item>
+        <item>Light</item>
+        <item>Moderate</item>
+        <item>Heavy</item>
+    </string-array>
+
+    <string-array name="pain_levels">
+        <item>Select pain level</item>
+        <item>None</item>
+        <item>Mild</item>
+        <item>Moderate</item>
+        <item>Severe</item>
+    </string-array>
+
+    <string-array name="postpartum_feeding_methods">
+        <item>Select feeding method</item>
+        <item>Breastfeeding</item>
+        <item>Formula feeding</item>
+        <item>Mixed feeding</item>
+        <item>Not applicable</item>
+    </string-array>
+    <string name="recovery_date_week_value">%1$s · Postpartum week %2$d</string>
+    <string name="postpartum_dashboard_description">Recovery, emotional support and appointments</string>
+
+    <string name="pregnancy_care">Pregnancy Care</string>
+    <string name="pregnancy_description">Track pregnancy weeks, mood and milestones</string>
+
+    <string name="anxiety_screen_title">Anxiety Support</string>
+    <string name="anxiety_screen_subtitle">Pause, check in and choose a calming activity</string>
+
+    <string name="how_are_you_feeling">How are you feeling right now?</string>
+    <string name="anxiety_scale_help">1 = Very anxious · 10 = Very calm</string>
+    <string name="anxiety_rating_value">%1$d out of 10</string>
+
+    <string name="anxiety_quick_questions">What are you noticing?</string>
+    <string name="feeling_worried">Worry</string>
+    <string name="feeling_restless">Restlessness</string>
+    <string name="racing_thoughts">Racing thoughts</string>
+    <string name="feeling_overwhelmed">Feeling overwhelmed</string>
+    <string name="anxiety_cause_hint">What may be causing this feeling? (optional)</string>
+
+    <string name="choose_support_activity">Choose a support activity</string>
+    <string name="breathe">Breathe</string>
+    <string name="breathe_description">Follow a two-minute guided breathing exercise</string>
+    <string name="ground">Ground</string>
+    <string name="ground_description">Use the 5-4-3-2-1 grounding exercise</string>
+    <string name="understand">Understand</string>
+    <string name="understand_description">Pause and record what may be causing the anxiety</string>
+
+    <string name="breathing_exercise">Guided breathing</string>
+    <string name="breathing_instructions">Breathe slowly and comfortably. Stop if you feel uncomfortable.</string>
+    <string name="breathe_in">Breathe in</string>
+    <string name="breathe_out">Breathe out</string>
+    <string name="breathing_time_value">%1$d:%2$02d remaining</string>
+    <string name="finish_breathing">Finish exercise</string>
+
+    <string name="grounding_exercise">5-4-3-2-1 grounding</string>
+    <string name="grounding_instructions">Notice five things you see, four you can feel, three you hear, two you smell and one you taste.</string>
+    <string name="finish_grounding">Finish grounding</string>
+
+    <string name="understand_prompt">Take a moment to write what happened, what you are worried about and what support may help.</string>
+    <string name="continue_check_in">Continue check-in</string>
+
+    <string name="after_support_title">How do you feel now?</string>
+    <string name="after_support_help">Use the same scale: 1 = Very anxious · 10 = Very calm</string>
+    <string name="save_anxiety_check_in">Save anxiety check-in</string>
+
+    <string name="recent_anxiety_check_ins">Recent anxiety check-ins</string>
+    <string name="no_anxiety_check_ins">No anxiety check-ins yet</string>
+    <string name="anxiety_check_in_saved">Anxiety check-in saved</string>
+    <string name="unable_to_save_anxiety">Unable to save anxiety check-in</string>
+    <string name="unable_to_load_anxiety">Unable to load anxiety check-ins</string>
+    <string name="choose_anxiety_activity">Please complete a support activity first</string>
+    <string name="anxiety_before_after_value">%1$d → %2$d after %3$s</string>
+    <string name="anxiety_feelings_value">Noticed: %1$s</string>
+    <string name="anxiety_support_notice">This feature provides general wellbeing support and does not diagnose or treat anxiety.</string>
+
+    <string name="support_activity_completed">%1$s completed. Rate how you feel now.</string>
+    <string name="no_feelings_selected">None selected</string>
+    <string name="anxiety_cause_value">Cause or notes: %1$s</string>
+
+    <string name="postpartum_appointments_title">Postpartum Appointments</string>
+    <string name="postpartum_appointments_subtitle">Record your upcoming check-ups and support visits</string>
+
+    <string name="postpartum_appointment_type_hint">Appointment type</string>
+    <string name="postpartum_appointment_type_example">For example: postnatal check-up or counselling</string>
+    <string name="postpartum_provider_hint">Doctor, provider or clinic</string>
+    <string name="postpartum_select_date">Select date</string>
+    <string name="postpartum_select_time">Select time</string>
+    <string name="postpartum_appointment_notes_hint">Notes or questions to ask (optional)</string>
+    <string name="save_postpartum_appointment">Save appointment</string>
+
+    <string name="saved_postpartum_appointments">Saved appointments</string>
+    <string name="no_postpartum_appointments">No appointments saved yet</string>
+    <string name="postpartum_appointment_saved">Appointment saved</string>
+    <string name="unable_to_save_appointment">Unable to save appointment</string>
+    <string name="unable_to_load_appointments">Unable to load appointments</string>
+    <string name="complete_appointment_details">Please enter the type, provider, date and time</string>
+
+    <string name="postpartum_appointment_date_time">%1$s at %2$s</string>
+    <string name="postpartum_appointment_type_value">Type: %1$s</string>
+    <string name="postpartum_appointment_provider_value">Provider: %1$s</string>
+    <string name="postpartum_appointment_notes_value">Notes: %1$s</string>
+
+    <string name="support_contacts_screen_title">Support Contacts</string>
+    <string name="support_contacts_screen_subtitle">Keep trusted people and healthcare contacts easy to reach</string>
+
+    <string name="support_contact_name_hint">Contact name</string>
+    <string name="support_contact_relationship_hint">Relationship or role</string>
+    <string name="support_contact_relationship_example">For example: partner, family member, doctor or midwife</string>
+    <string name="support_contact_phone_hint">Phone number</string>
+    <string name="save_support_contact">Save contact</string>
+
+    <string name="your_support_contacts">Your support contacts</string>
+    <string name="no_support_contacts_saved">No support contacts saved yet</string>
+    <string name="support_contact_saved">Support contact saved</string>
+    <string name="unable_to_save_contact">Unable to save support contact</string>
+    <string name="unable_to_load_contacts">Unable to load support contacts</string>
+    <string name="complete_support_contact_details">Please enter the contact name, relationship and phone number</string>
+
+    <string name="support_contact_relationship_value">Relationship or role: %1$s</string>
+    <string name="support_contact_phone_value">Phone: %1$s</string>
+    <string name="call_support_contact">Call</string>
+
+    <string name="support_contacts_safety_notice">For urgent medical help, contact your local emergency service or nearest hospital.</string>
 </resources>
