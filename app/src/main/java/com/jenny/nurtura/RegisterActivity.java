@@ -176,6 +176,7 @@ public class RegisterActivity extends AppCompatActivity {
         profile.put("email", email);
         profile.put("lifeStage", "Not selected");
         profile.put("profileComplete", false);
+        profile.put("role", "user");
         profile.put(
                 "createdAt",
                 FieldValue.serverTimestamp()

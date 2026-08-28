@@ -101,6 +101,16 @@ public class MainActivity extends AppCompatActivity {
 
                     startActivity(intent);
                 });
+        findViewById(R.id.shareFeedbackButton)
+                .setOnClickListener(view -> {
+                    Intent intent =
+                            new Intent(
+                                    MainActivity.this,
+                                    SubmitFeedbackActivity.class
+                            );
+
+                    startActivity(intent);
+                });
 
         logoutButton.setOnClickListener(view -> {
             firebaseAuth.signOut();

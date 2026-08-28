@@ -398,4 +398,54 @@
     <string name="call_support_contact">Call</string>
 
     <string name="support_contacts_safety_notice">For urgent medical help, contact your local emergency service or nearest hospital.</string>
+
+    <string name="admin_dashboard_title">Admin Dashboard</string>
+    <string name="admin_dashboard_subtitle">Monitor registered users and manage feedback</string>
+
+    <string name="admin_overview">System overview</string>
+    <string name="total_registered_users">Registered users</string>
+    <string name="total_feedback">Total feedback</string>
+    <string name="new_feedback">New feedback</string>
+    <string name="admin_count_value">%1$d</string>
+    <string name="unable_to_load_admin_counts">Unable to load the Admin Dashboard counts</string>
+
+    <string name="review_feedback">Review Feedback</string>
+    <string name="review_feedback_description">View, review and remove feedback submitted by Nurtura users</string>
+
+    <string name="admin_access_notice">Private health records are not accessible.</string>
+    <string name="admin_access_denied">You do not have permission to access the Admin Dashboard</string>
+    <string name="unable_to_verify_admin">Unable to verify Admin access</string>
+
+    <string name="unable_to_load_account_role">Unable to load the account role. Opening the user dashboard.</string>
+
+    <string name="submit_feedback_title">Share Feedback</string>
+    <string name="submit_feedback_subtitle">Tell us what is working well or what could be improved</string>
+    <string name="feedback_message_hint">Write your feedback</string>
+    <string name="feedback_privacy_notice">Your feedback is visible to the Nurtura administrator. Private health records are not included.</string>
+    <string name="submit_feedback_button">Submit feedback</string>
+    <string name="feedback_message_required">Please enter your feedback</string>
+    <string name="feedback_submitted">Thank you. Your feedback was submitted.</string>
+    <string name="unable_to_submit_feedback">Unable to submit feedback</string>
+
+    <string name="review_feedback_screen_subtitle">Review messages submitted by Nurtura users</string>
+    <string name="no_feedback_submissions">No feedback has been submitted</string>
+    <string name="unable_to_load_feedback">Unable to load feedback</string>
+
+    <string name="feedback_from_value">From: %1$s</string>
+    <string name="feedback_email_value">Email: %1$s</string>
+    <string name="feedback_date_value">Submitted: %1$s</string>
+    <string name="feedback_status_value">Status: %1$s</string>
+
+    <string name="feedback_status_new">New</string>
+    <string name="feedback_status_reviewed">Reviewed</string>
+    <string name="mark_feedback_reviewed">Mark reviewed</string>
+    <string name="feedback_marked_reviewed">Feedback marked as reviewed</string>
+    <string name="unable_to_update_feedback">Unable to update feedback</string>
+
+    <string name="delete_feedback">Delete</string>
+    <string name="delete_feedback_title">Delete this feedback?</string>
+    <string name="delete_feedback_message">This feedback will be permanently removed.</string>
+    <string name="feedback_deleted">Feedback deleted</string>
+    <string name="unable_to_delete_feedback">Unable to delete feedback</string>
+
 </resources>
