@@ -52,6 +52,8 @@ public class MenstrualActivity extends AppCompatActivity {
     private TextView lastPeriodTextView;
     private TextView averageCycleTextView;
     private TextView nextPeriodTextView;
+    private TextView ovulationDateTextView;
+    private TextView fertileWindowTextView;
     private TextView emptyEntriesTextView;
     private LinearLayout recentEntriesContainer;
 
@@ -83,6 +85,10 @@ public class MenstrualActivity extends AppCompatActivity {
                 findViewById(R.id.averageCycleTextView);
         nextPeriodTextView =
                 findViewById(R.id.nextPeriodTextView);
+        ovulationDateTextView =
+                findViewById(R.id.ovulationDateTextView);
+        fertileWindowTextView =
+                findViewById(R.id.fertileWindowTextView);
         emptyEntriesTextView =
                 findViewById(R.id.emptyEntriesTextView);
         recentEntriesContainer =
@@ -312,6 +318,7 @@ public class MenstrualActivity extends AppCompatActivity {
         );
 
         int predictedCycleLength = 28;
+        boolean cycleEstimateAvailable = false;
 
         if (periodDates.size() >= 2) {
             long totalDays = 0;
@@ -323,6 +330,7 @@ public class MenstrualActivity extends AppCompatActivity {
 
                 long newerDate =
                         periodDates.get(index - 1);
+
                 long olderDate =
                         periodDates.get(index);
 
@@ -351,6 +359,8 @@ public class MenstrualActivity extends AppCompatActivity {
                 averageCycleTextView.setText(
                         predictedCycleLength + " days"
                 );
+
+                cycleEstimateAvailable = true;
             } else {
                 averageCycleTextView.setText(
                         R.string.not_enough_data
@@ -363,12 +373,63 @@ public class MenstrualActivity extends AppCompatActivity {
         }
 
         long predictedDate =
-                latestDate
-                        + predictedCycleLength
-                        * DAY_IN_MILLIS;
+                addDays(
+                        latestDate,
+                        predictedCycleLength
+                );
 
         nextPeriodTextView.setText(
                 formatDate(predictedDate)
+        );
+
+        if (cycleEstimateAvailable) {
+            updateOvulationEstimate(predictedDate);
+        } else {
+            showUnavailableOvulationEstimate();
+        }
+    }
+
+    private void updateOvulationEstimate(
+            long predictedNextPeriod
+    ) {
+        long ovulationDate =
+                addDays(
+                        predictedNextPeriod,
+                        -14
+                );
+
+        long fertileWindowStart =
+                addDays(
+                        ovulationDate,
+                        -5
+                );
+
+        long fertileWindowEnd =
+                addDays(
+                        ovulationDate,
+                        1
+                );
+
+        ovulationDateTextView.setText(
+                formatDate(ovulationDate)
+        );
+
+        fertileWindowTextView.setText(
+                getString(
+                        R.string.fertile_window_date_value,
+                        formatDate(fertileWindowStart),
+                        formatDate(fertileWindowEnd)
+                )
+        );
+    }
+
+    private void showUnavailableOvulationEstimate() {
+        ovulationDateTextView.setText(
+                R.string.not_enough_data
+        );
+
+        fertileWindowTextView.setText(
+                R.string.not_enough_data
         );
     }
 
@@ -384,8 +445,26 @@ public class MenstrualActivity extends AppCompatActivity {
         nextPeriodTextView.setText(
                 R.string.not_enough_data
         );
+
+        showUnavailableOvulationEstimate();
     }
 
+    private long addDays(
+            long dateMillis,
+            int numberOfDays
+    ) {
+        Calendar calendar =
+                Calendar.getInstance();
+
+        calendar.setTimeInMillis(dateMillis);
+
+        calendar.add(
+                Calendar.DAY_OF_MONTH,
+                numberOfDays
+        );
+
+        return calendar.getTimeInMillis();
+    }
     private void addRecentEntryCard(
             String documentId,
             long startDate,
