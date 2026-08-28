@@ -448,4 +448,10 @@
     <string name="feedback_deleted">Feedback deleted</string>
     <string name="unable_to_delete_feedback">Unable to delete feedback</string>
 
+    <string name="ovulation_estimate">Ovulation estimate</string>
+    <string name="estimated_ovulation">Estimated ovulation</string>
+    <string name="estimated_fertile_window">Estimated fertile window</string>
+    <string name="fertile_window_date_value">%1$s – %2$s</string>
+    <string name="ovulation_more_data_needed">Record at least two period start dates to calculate an estimate</string>
+    <string name="ovulation_estimate_notice">These dates are estimates based on recorded cycles. Do not use this feature as contraception.</string>
 </resources>

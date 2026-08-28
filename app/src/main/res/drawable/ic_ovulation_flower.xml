@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="30dp"
+    android:height="30dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,10
+            C9.7,8.3 9.8,4.4 12,2.5
+            C14.2,4.4 14.3,8.3 12,10Z"/>
+
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M14,11
+            C14.5,7.8 17.3,6 20.2,7
+            C20.4,10 18.4,12.6 14.5,12.5Z"/>
+
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M14,13
+            C18,12.7 20.4,15.3 20.1,18.3
+            C17.1,19.1 14.4,17.2 13.8,14Z"/>
+
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,14
+            C14.3,16 14.2,19.7 12,21.5
+            C9.8,19.7 9.7,16 12,14Z"/>
+
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M10,13
+            C6,12.7 3.6,15.3 3.9,18.3
+            C6.9,19.1 9.6,17.2 10.2,14Z"/>
+
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M10,11
+            C9.5,7.8 6.7,6 3.8,7
+            C3.6,10 5.6,12.6 9.5,12.5Z"/>
+
+    <path
+        android:fillColor="#F7A8C4"
+        android:pathData="M12,9
+            A3,3 0,1 1,12,15
+            A3,3 0,1 1,12,9Z"/>
+
+</vector>
