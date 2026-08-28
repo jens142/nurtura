@@ -454,4 +454,107 @@
     <string name="fertile_window_date_value">%1$s – %2$s</string>
     <string name="ovulation_more_data_needed">Record at least two period start dates to calculate an estimate</string>
     <string name="ovulation_estimate_notice">These dates are estimates based on recorded cycles. Do not use this feature as contraception.</string>
+
+    <string name="baby_health_schedule_title">Vaccinations &amp; appointments</string>
+    <string name="baby_health_schedule_description">Follow Sri Lanka’s vaccination schedule and record clinic visits</string>
+
+    <string name="baby_schedule_screen_title">Baby health schedule</string>
+    <string name="baby_schedule_screen_subtitle">Track recommended vaccinations and upcoming clinic visits</string>
+
+    <string name="baby_birth_details">Baby details</string>
+    <string name="baby_birth_date_label">Date of birth</string>
+    <string name="select_baby_birth_date">Select baby’s date of birth</string>
+    <string name="baby_birth_date_value">Date of birth: %1$s</string>
+    <string name="baby_age_months_value">Baby age: %1$d months</string>
+    <string name="baby_age_years_months_value">Baby age: %1$d years, %2$d months</string>
+    <string name="baby_birth_date_saved">Baby’s date of birth saved</string>
+    <string name="unable_to_save_baby_birth_date">Unable to save the date of birth</string>
+
+    <string name="official_vaccination_schedule">Sri Lankan vaccination schedule</string>
+    <string name="official_vaccination_schedule_help">Target dates are calculated from the baby’s date of birth</string>
+    <string name="vaccination_schedule_needs_birth_date">Select the baby’s date of birth to view target dates</string>
+    <string name="vaccination_age_value">Recommended at: %1$s</string>
+    <string name="vaccination_target_date_value">Target date: %1$s</string>
+    <string name="mark_vaccination_received">Mark received</string>
+    <string name="edit_vaccination_date">Edit date</string>
+    <string name="vaccination_received_value">Received: %1$s</string>
+    <string name="vaccination_recorded">Vaccination recorded</string>
+    <string name="unable_to_save_vaccination">Unable to save vaccination record</string>
+
+    <string name="add_custom_vaccination">Add another vaccination</string>
+    <string name="custom_vaccination_name_hint">Vaccination name</string>
+    <string name="vaccination_date_button">Select vaccination date</string>
+    <string name="save_custom_vaccination">Save vaccination</string>
+    <string name="additional_vaccinations">Additional vaccinations</string>
+    <string name="no_additional_vaccinations">No additional vaccinations recorded</string>
+    <string name="custom_vaccination_saved">Vaccination saved</string>
+
+    <string name="add_baby_appointment">Add appointment</string>
+    <string name="appointment_purpose_hint">Appointment purpose</string>
+    <string name="baby_appointment_date_button">Select appointment date</string>
+    <string name="clinic_provider_hint">Clinic or healthcare provider</string>
+    <string name="baby_health_notes_hint">Notes (optional)</string>
+    <string name="save_baby_appointment">Save appointment</string>
+    <string name="upcoming_baby_appointments">Baby appointments</string>
+    <string name="no_baby_appointments">No appointments recorded</string>
+    <string name="baby_appointment_saved">Appointment saved</string>
+    <string name="unable_to_save_baby_appointment">Unable to save appointment</string>
+
+    <string name="baby_health_record_date_value">%1$s · %2$s</string>
+    <string name="baby_health_clinic_value">Clinic/provider: %1$s</string>
+    <string name="baby_health_notes_value">Notes: %1$s</string>
+    <string name="baby_schedule_source">Based on Sri Lanka’s National Immunization Schedule. Confirm dates with your child health clinic.</string>
+    <string name="baby_schedule_notice">This is a planning record, not an official vaccination certificate. Follow the Child Health Development Record and clinic advice.</string>
+    <string name="unable_to_load_baby_schedule">Unable to load the baby health schedule</string>
+
+    <string-array name="sri_lanka_vaccine_names">
+        <item>BCG</item>
+        <item>OPV + Pentavalent dose 1 + fractional IPV dose 1</item>
+        <item>OPV + Pentavalent dose 2 + fractional IPV dose 2</item>
+        <item>OPV + Pentavalent dose 3</item>
+        <item>MMR dose 1</item>
+        <item>Live JE vaccine</item>
+        <item>OPV + DTP dose 4</item>
+        <item>MMR dose 2</item>
+        <item>OPV + DT dose 5</item>
+    </string-array>
+
+    <string-array name="sri_lanka_vaccine_ages">
+        <item>Birth to 4 weeks</item>
+        <item>2 months</item>
+        <item>4 months</item>
+        <item>6 months</item>
+        <item>9 months</item>
+        <item>12 months</item>
+        <item>18 months</item>
+        <item>3 years</item>
+        <item>5 years</item>
+    </string-array>
+
+    <integer-array name="sri_lanka_vaccine_due_months">
+        <item>0</item>
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>9</item>
+        <item>12</item>
+        <item>18</item>
+        <item>36</item>
+        <item>60</item>
+    </integer-array>
+
+    <string name="vaccination_name_required">Enter the vaccination name</string>
+    <string name="vaccination_date_required">Select the vaccination date</string>
+    <string name="appointment_purpose_required">Enter the appointment purpose</string>
+    <string name="appointment_date_required">Select the appointment date</string>
+
+    <string name="baby_reminder_channel_name">Baby health reminders</string>
+    <string name="baby_reminder_channel_description">Vaccination and appointment reminders</string>
+
+    <string name="vaccination_due_notification_title">Vaccination due</string>
+    <string name="vaccination_due_notification_message">%1$s is due today</string>
+
+    <string name="appointment_reminder_notification_title">Appointment reminder</string>
+    <string name="appointment_reminder_notification_message">%1$s is scheduled for tomorrow</string>
+    <string name="appointment_today_notification_message">%1$s is scheduled for today</string>
 </resources>

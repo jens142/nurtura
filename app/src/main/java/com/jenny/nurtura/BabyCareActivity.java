@@ -29,6 +29,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import android.content.Intent;
+
 public class BabyCareActivity extends AppCompatActivity {
 
     private FirebaseFirestore firestore;
@@ -85,6 +87,17 @@ public class BabyCareActivity extends AppCompatActivity {
                 .setOnClickListener(
                         view -> finish()
                 );
+
+        findViewById(R.id.babyHealthScheduleCard)
+                .setOnClickListener(view -> {
+                    Intent intent =
+                            new Intent(
+                                    BabyCareActivity.this,
+                                    BabyHealthScheduleActivity.class
+                            );
+
+                    startActivity(intent);
+                });
 
         findViewById(R.id.feedButton)
                 .setOnClickListener(view ->
