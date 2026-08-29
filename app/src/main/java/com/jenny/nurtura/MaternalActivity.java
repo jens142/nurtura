@@ -40,7 +40,6 @@ public class MaternalActivity extends AppCompatActivity {
     private MaterialButton checkInDateButton;
     private MaterialButton saveCheckInButton;
 
-    private Spinner maternalStageSpinner;
     private Spinner moodSpinner;
 
     private EditText weekEditText;
@@ -75,9 +74,6 @@ public class MaternalActivity extends AppCompatActivity {
 
         saveCheckInButton =
                 findViewById(R.id.saveCheckInButton);
-
-        maternalStageSpinner =
-                findViewById(R.id.maternalStageSpinner);
 
         moodSpinner =
                 findViewById(R.id.moodSpinner);
@@ -189,15 +185,10 @@ public class MaternalActivity extends AppCompatActivity {
     }
 
     private void saveCheckIn() {
-        if (maternalStageSpinner
-                .getSelectedItemPosition() == 0) {
-
-            showMessage("Select the care stage");
-            return;
-        }
-
         if (selectedDateMillis == -1) {
-            showMessage("Select the check-in date");
+            showMessage(
+                    getString(R.string.select_pregnancy_check_in_date)
+            );
             return;
         }
 
@@ -207,7 +198,9 @@ public class MaternalActivity extends AppCompatActivity {
                 .trim();
 
         if (weekText.isEmpty()) {
-            showMessage("Enter the week number");
+            showMessage(
+                    getString(R.string.enter_pregnancy_week)
+            );
             return;
         }
 
@@ -216,13 +209,15 @@ public class MaternalActivity extends AppCompatActivity {
         try {
             weekNumber = Integer.parseInt(weekText);
         } catch (NumberFormatException exception) {
-            showMessage("Enter a valid week number");
+            showMessage(
+                    getString(R.string.invalid_pregnancy_week)
+            );
             return;
         }
 
-        if (weekNumber < 1 || weekNumber > 52) {
+        if (weekNumber < 1 || weekNumber > 42) {
             showMessage(
-                    "Week number must be between 1 and 52"
+                    getString(R.string.invalid_pregnancy_week)
             );
             return;
         }
@@ -230,14 +225,13 @@ public class MaternalActivity extends AppCompatActivity {
         if (moodSpinner
                 .getSelectedItemPosition() == 0) {
 
-            showMessage("Select your mood");
+            showMessage(
+                    getString(R.string.select_pregnancy_mood)
+            );
             return;
         }
 
-        String stage =
-                maternalStageSpinner
-                        .getSelectedItem()
-                        .toString();
+        String stage = "Pregnancy";
 
         String mood =
                 moodSpinner
@@ -279,7 +273,12 @@ public class MaternalActivity extends AppCompatActivity {
         getMaternalEntries()
                 .add(checkIn)
                 .addOnSuccessListener(document -> {
-                    showMessage("Check-in saved");
+                    showMessage(
+                            getString(R.string.pregnancy_check_in_saved)
+                    );
+
+                    showPregnancySizeInsight(weekNumber);
+
                     clearForm();
                     loadCheckIns();
                 })
@@ -287,7 +286,9 @@ public class MaternalActivity extends AppCompatActivity {
                     showLoading(false);
 
                     showMessage(
-                            "Unable to save check-in"
+                            getString(
+                                    R.string.unable_to_save_pregnancy_check_in
+                            )
                     );
                 });
     }
@@ -300,104 +301,104 @@ public class MaternalActivity extends AppCompatActivity {
                         "checkInDateMillis",
                         Query.Direction.DESCENDING
                 )
-                .limit(6)
+                .limit(30)
                 .get()
                 .addOnSuccessListener(snapshot -> {
                     entriesContainer.removeAllViews();
 
-                    if (snapshot.isEmpty()) {
-                        emptyTextView.setVisibility(
-                                View.VISIBLE
-                        );
+                    boolean firstEntry = true;
+                    int displayedEntries = 0;
 
-                        maternalStageTextView.setText(
-                                R.string.not_recorded
-                        );
+                    for (QueryDocumentSnapshot document
+                            : snapshot) {
 
-                        latestCheckInTextView.setText(
-                                R.string.not_recorded
-                        );
-                    } else {
-                        emptyTextView.setVisibility(
-                                View.GONE
-                        );
+                        String stage = document.getString("stage");
 
-                        boolean firstEntry = true;
-
-                        for (QueryDocumentSnapshot document
-                                : snapshot) {
-
-                            Long dateMillis =
-                                    document.getLong(
-                                            "checkInDateMillis"
-                                    );
-
-                            Long weekValue =
-                                    document.getLong(
-                                            "weekNumber"
-                                    );
-
-                            if (dateMillis == null
-                                    || weekValue == null) {
-                                continue;
-                            }
-
-                            int weekNumber =
-                                    weekValue.intValue();
-
-                            String stage =
-                                    valueOrDefault(
-                                            document.getString(
-                                                    "stage"
-                                            )
-                                    );
-
-                            String mood =
-                                    valueOrDefault(
-                                            document.getString(
-                                                    "mood"
-                                            )
-                                    );
-
-                            String symptoms =
-                                    document.getString(
-                                            "symptoms"
-                                    );
-
-                            String notes =
-                                    document.getString(
-                                            "notes"
-                                    );
-
-                            if (firstEntry) {
-                                maternalStageTextView
-                                        .setText(stage);
-
-                                latestCheckInTextView
-                                        .setText(
-                                                getString(
-                                                        R.string
-                                                                .latest_check_in_value,
-                                                        formatDate(
-                                                                dateMillis
-                                                        ),
-                                                        weekNumber
-                                                )
-                                        );
-
-                                firstEntry = false;
-                            }
-
-                            addCheckInCard(
-                                    document.getId(),
-                                    dateMillis,
-                                    stage,
-                                    weekNumber,
-                                    mood,
-                                    symptoms,
-                                    notes
-                            );
+                        if (!"Pregnancy".equalsIgnoreCase(stage)) {
+                            continue;
                         }
+
+                        Long dateMillis =
+                                document.getLong(
+                                        "checkInDateMillis"
+                                );
+
+                        Long weekValue =
+                                document.getLong(
+                                        "weekNumber"
+                                );
+
+                        if (dateMillis == null
+                                || weekValue == null) {
+                            continue;
+                        }
+
+                        int weekNumber =
+                                weekValue.intValue();
+
+                        String mood =
+                                valueOrDefault(
+                                        document.getString(
+                                                "mood"
+                                        )
+                                );
+
+                        String symptoms =
+                                document.getString(
+                                        "symptoms"
+                                );
+
+                        String notes =
+                                document.getString(
+                                        "notes"
+                                );
+
+                        if (firstEntry) {
+                            maternalStageTextView
+                                    .setText(
+                                            getString(
+                                                    R.string.week_value,
+                                                    weekNumber
+                                            )
+                                    );
+
+                            latestCheckInTextView
+                                    .setText(
+                                            getString(
+                                                    R.string
+                                                            .latest_check_in_value,
+                                                    formatDate(
+                                                            dateMillis
+                                                    ),
+                                                    weekNumber
+                                            )
+                                    );
+
+                            firstEntry = false;
+                        }
+
+                        addCheckInCard(
+                                document.getId(),
+                                dateMillis,
+                                weekNumber,
+                                mood,
+                                symptoms,
+                                notes
+                        );
+
+                        displayedEntries++;
+
+                        if (displayedEntries == 6) {
+                            break;
+                        }
+                    }
+
+                    if (firstEntry) {
+                        emptyTextView.setVisibility(View.VISIBLE);
+                        maternalStageTextView.setText(R.string.not_recorded);
+                        latestCheckInTextView.setText(R.string.not_recorded);
+                    } else {
+                        emptyTextView.setVisibility(View.GONE);
                     }
 
                     showLoading(false);
@@ -406,7 +407,9 @@ public class MaternalActivity extends AppCompatActivity {
                     showLoading(false);
 
                     showMessage(
-                            "Unable to load check-ins"
+                            getString(
+                                    R.string.unable_to_load_pregnancy_check_ins
+                            )
                     );
                 });
     }
@@ -414,7 +417,6 @@ public class MaternalActivity extends AppCompatActivity {
     private void addCheckInCard(
             String documentId,
             long dateMillis,
-            String stage,
             int weekNumber,
             String mood,
             String symptoms,
@@ -438,14 +440,14 @@ public class MaternalActivity extends AppCompatActivity {
         card.setCardBackgroundColor(
                 ContextCompat.getColor(
                         this,
-                        R.color.nurtura_surface
+                        R.color.maternal_light
                 )
         );
 
         card.setStrokeColor(
                 ContextCompat.getColor(
                         this,
-                        R.color.nurtura_border
+                        R.color.maternal_accent
                 )
         );
 
@@ -474,18 +476,17 @@ public class MaternalActivity extends AppCompatActivity {
 
         content.addView(dateText);
 
-        TextView stageText =
+        TextView weekText =
                 createEntryText(
                         getString(
-                                R.string.stage_week_value,
-                                stage,
+                                R.string.week_value,
                                 weekNumber
                         ),
                         14,
                         false
                 );
 
-        content.addView(stageText);
+        content.addView(weekText);
 
         TextView moodText =
                 createEntryText(
@@ -694,7 +695,6 @@ public class MaternalActivity extends AppCompatActivity {
     private void clearForm() {
         selectedDateMillis = -1;
 
-        maternalStageSpinner.setSelection(0);
         moodSpinner.setSelection(0);
 
         checkInDateButton.setText(
@@ -704,6 +704,81 @@ public class MaternalActivity extends AppCompatActivity {
         weekEditText.setText("");
         symptomsEditText.setText("");
         notesEditText.setText("");
+    }
+
+    private void showPregnancySizeInsight(int weekNumber) {
+        String insight;
+        String illustration;
+
+        if (weekNumber <= 3) {
+            illustration = "🌱";
+            insight = getString(
+                    R.string.pregnancy_early_week_insight
+            );
+        } else {
+            String[] sizeComparisons = getResources().getStringArray(
+                    R.array.pregnancy_baby_size_comparisons
+            );
+
+            String[] sizeIllustrations = getResources().getStringArray(
+                    R.array.pregnancy_baby_size_illustrations
+            );
+
+            int comparisonWeek = Math.min(weekNumber, 40);
+            int comparisonIndex = comparisonWeek - 4;
+
+            illustration = sizeIllustrations[comparisonIndex];
+
+            insight = getString(
+                    R.string.pregnancy_baby_size_message,
+                    sizeComparisons[comparisonIndex]
+            );
+        }
+
+        String message = insight
+                + "\n\n"
+                + getString(R.string.pregnancy_growth_notice);
+
+        LinearLayout content = new LinearLayout(this);
+        content.setOrientation(LinearLayout.VERTICAL);
+        content.setPadding(
+                dpToPixels(24),
+                dpToPixels(8),
+                dpToPixels(24),
+                0
+        );
+
+        TextView illustrationTextView = new TextView(this);
+        illustrationTextView.setText(illustration);
+        illustrationTextView.setTextSize(64);
+        illustrationTextView.setGravity(android.view.Gravity.CENTER);
+        content.addView(illustrationTextView);
+
+        TextView messageTextView = new TextView(this);
+        messageTextView.setText(message);
+        messageTextView.setTextSize(15);
+        messageTextView.setGravity(android.view.Gravity.CENTER);
+
+        LinearLayout.LayoutParams messageParameters =
+                new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                );
+
+        messageParameters.topMargin = dpToPixels(10);
+        messageTextView.setLayoutParams(messageParameters);
+        content.addView(messageTextView);
+
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(
+                        getString(
+                                R.string.pregnancy_week_insight_title,
+                                weekNumber
+                        )
+                )
+                .setView(content)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
     }
 
     private void showLoading(boolean loading) {

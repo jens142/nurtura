@@ -557,4 +557,107 @@
     <string name="appointment_reminder_notification_title">Appointment reminder</string>
     <string name="appointment_reminder_notification_message">%1$s is scheduled for tomorrow</string>
     <string name="appointment_today_notification_message">%1$s is scheduled for today</string>
+
+    <string name="invalid_pregnancy_week">Pregnancy week must be between 1 and 42</string>
+    <string name="pregnancy_week_insight_title">Week %1$d baby insight</string>
+    <string name="pregnancy_baby_size_message">Your baby is approximately the size of %1$s.</string>
+    <string name="pregnancy_early_week_insight">Pregnancy is dated from the first day of the last menstrual period. A size comparison is not yet useful at this early stage.</string>
+    <string name="pregnancy_growth_notice">This is a general comparison. Growth varies, so follow your scan results and healthcare provider’s guidance.</string>
+
+    <string-array name="pregnancy_baby_size_comparisons">
+        <item>a poppy seed</item>
+        <item>a sesame seed</item>
+        <item>a pea</item>
+        <item>a grape</item>
+        <item>a raspberry</item>
+        <item>a strawberry</item>
+        <item>an apricot</item>
+        <item>a fig</item>
+        <item>a plum</item>
+        <item>a peach</item>
+        <item>a kiwi fruit</item>
+        <item>an apple</item>
+        <item>an avocado</item>
+        <item>a pomegranate</item>
+        <item>a bell pepper</item>
+        <item>a tomato</item>
+        <item>a banana</item>
+        <item>a carrot</item>
+        <item>a papaya</item>
+        <item>a large mango</item>
+        <item>an ear of corn</item>
+        <item>a courgette</item>
+        <item>a cucumber</item>
+        <item>a cauliflower</item>
+        <item>an aubergine</item>
+        <item>a butternut squash</item>
+        <item>a cabbage</item>
+        <item>a coconut</item>
+        <item>a bunch of celery</item>
+        <item>a pineapple</item>
+        <item>a cantaloupe melon</item>
+        <item>a honeydew melon</item>
+        <item>a romaine lettuce</item>
+        <item>a leek</item>
+        <item>a rhubarb stalk</item>
+        <item>a watermelon</item>
+        <item>a pumpkin</item>
+    </string-array>
+
+    <string-array name="pregnancy_baby_size_illustrations">
+        <item>🌱</item>
+        <item>🌱</item>
+        <item>🌱</item>
+        <item>🍇</item>
+        <item>🍓</item>
+        <item>🍓</item>
+        <item>🍑</item>
+        <item>🍑</item>
+        <item>🍑</item>
+        <item>🍑</item>
+        <item>🥝</item>
+        <item>🍎</item>
+        <item>🥑</item>
+        <item>🍎</item>
+        <item>🫑</item>
+        <item>🍅</item>
+        <item>🍌</item>
+        <item>🥕</item>
+        <item>🥭</item>
+        <item>🥭</item>
+        <item>🌽</item>
+        <item>🥒</item>
+        <item>🥒</item>
+        <item>🥦</item>
+        <item>🍆</item>
+        <item>🎃</item>
+        <item>🥬</item>
+        <item>🥥</item>
+        <item>🥬</item>
+        <item>🍍</item>
+        <item>🍈</item>
+        <item>🍈</item>
+        <item>🥬</item>
+        <item>🥬</item>
+        <item>🥬</item>
+        <item>🍉</item>
+        <item>🎃</item>
+    </string-array>
+
+    <string name="pregnancy_illustration">🤰</string>
+    <string name="pregnancy_summary">Pregnancy overview</string>
+    <string name="current_pregnancy_week">Current week</string>
+    <string name="add_pregnancy_check_in">Add pregnancy check-in</string>
+    <string name="pregnancy_week_hint">Pregnancy week</string>
+    <string name="pregnancy_symptoms_hint">Symptoms or body changes</string>
+    <string name="pregnancy_notes_hint">Notes (optional)</string>
+    <string name="save_pregnancy_check_in">Save pregnancy check-in</string>
+    <string name="recent_pregnancy_check_ins">Recent pregnancy check-ins</string>
+    <string name="no_pregnancy_check_ins">No pregnancy check-ins yet</string>
+    <string name="select_pregnancy_check_in_date">Select the check-in date</string>
+    <string name="enter_pregnancy_week">Enter the pregnancy week</string>
+    <string name="select_pregnancy_mood">Select your mood</string>
+    <string name="pregnancy_check_in_saved">Pregnancy check-in saved</string>
+    <string name="unable_to_save_pregnancy_check_in">Unable to save pregnancy check-in</string>
+    <string name="unable_to_load_pregnancy_check_ins">Unable to load pregnancy check-ins</string>
 </resources>
