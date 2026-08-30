@@ -660,4 +660,18 @@
     <string name="pregnancy_check_in_saved">Pregnancy check-in saved</string>
     <string name="unable_to_save_pregnancy_check_in">Unable to save pregnancy check-in</string>
     <string name="unable_to_load_pregnancy_check_ins">Unable to load pregnancy check-ins</string>
+
+    <string name="dashboard_brand">NURTURA</string>
+    <string name="dashboard_spaces_subtitle">Choose a space to continue</string>
+
+    <string name="icon_flower" translatable="false">🌸</string>
+    <string name="icon_life_stage" translatable="false">✨</string>
+    <string name="icon_menstrual" translatable="false">🌙</string>
+    <string name="icon_pregnancy" translatable="false">🤰</string>
+    <string name="icon_postpartum" translatable="false">🫶</string>
+    <string name="icon_baby" translatable="false">👶</string>
+    <string name="icon_wellness" translatable="false">🌿</string>
+    <string name="dashboard_arrow" translatable="false">›</string>
+
+    <string name="dashboard_hero_description">Illustration representing women’s health, pregnancy and baby care</string>
 </resources>
